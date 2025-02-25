@@ -516,7 +516,7 @@ MonoBehaviour:
   checkRadius: 0.57
   isGrounded: 0
   isFacingRight: 0
-  dustEffect: {fileID: 1840602978738160077, guid: 8f240424370ab87438e31d3f65dc2e98, type: 3}
+  dust: {fileID: 0}
 --- !u!114 &3626991329815981103
 MonoBehaviour:
   m_ObjectHideFlags: 0
