@@ -1,28 +1,22 @@
 using UnityEngine;
-using Player;
 
 public class Dano : MonoBehaviour
 {
     public int damage = 10;
-    
-    // Referência para a health bar do jogador, arraste pelo Inspector
-    public HealthBar healthBar;
+    public float knockbackForce = 15f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            // Tenta pegar o PlayerData do jogador
-            PlayerData playerData = collision.gameObject.GetComponent<PlayerData>();
-            if (playerData != null)
+            DamageHandler damageHandler = collision.gameObject.GetComponent<DamageHandler>();
+            if (damageHandler != null)
             {
-                // Aplica o dano
-                playerData.TakeDamage(damage);
-                // Atualiza a health bar com o valor atual da saúde do jogador
-                if (healthBar != null)
-                {
-                    healthBar.SetHealth(playerData.currentHealth);
-                }
+                // Calcula a direção do knockback
+                Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
+
+                // Aplica o dano e o knockback
+                damageHandler.TakeDamage(damage, knockbackDirection, knockbackForce);
             }
         }
     }

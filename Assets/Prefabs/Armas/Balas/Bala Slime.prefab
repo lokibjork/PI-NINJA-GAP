@@ -210,6 +210,6 @@ MonoBehaviour:
   isBouncing: 1
   isBoomerang: 0
   isRocket: 0
-  maxBounces: 3
+  maxBounces: 6
   returning: 0
   returnDistance: 5

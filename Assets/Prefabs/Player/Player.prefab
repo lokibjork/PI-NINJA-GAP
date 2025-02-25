@@ -393,6 +393,7 @@ GameObject:
   - component: {fileID: 5161043959786565411}
   - component: {fileID: 9215258429239323503}
   - component: {fileID: 4516964625744704100}
+  - component: {fileID: 106529260132222406}
   - component: {fileID: 5360591799605747559}
   - component: {fileID: 3626991329815981103}
   - component: {fileID: 1419513558489741233}
@@ -493,9 +494,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
-  Dinheiro: 0
+  dinheiro: 100
   experience: 0
   healthBar: {fileID: 0}
+--- !u!114 &106529260132222406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425172458305328079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42c5720efeb2ef7429f011a63e571ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 4516964625744704100}
+  invulnerabilityTime: 2
+  rb: {fileID: 4252455248824809951}
 --- !u!114 &5360591799605747559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,7 +532,7 @@ MonoBehaviour:
   checkRadius: 0.57
   isGrounded: 0
   isFacingRight: 0
-  dust: {fileID: 0}
+  dust: {fileID: 5696725635259284761}
 --- !u!114 &3626991329815981103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1059,7 +1075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1840602978738160077, guid: 8f240424370ab87438e31d3f65dc2e98, type: 3}
       propertyPath: lengthInSec
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1840602978738160077, guid: 8f240424370ab87438e31d3f65dc2e98, type: 3}
       propertyPath: moveWithTransform
@@ -1067,13 +1083,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8137335348436047040, guid: 8f240424370ab87438e31d3f65dc2e98, type: 3}
       propertyPath: m_Name
-      value: DustEffect
+      value: dust
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f240424370ab87438e31d3f65dc2e98, type: 3}
+--- !u!198 &5696725635259284761 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1840602978738160077, guid: 8f240424370ab87438e31d3f65dc2e98, type: 3}
+  m_PrefabInstance: {fileID: 6234661251395058900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6791195788636247841 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 629056949819911157, guid: 8f240424370ab87438e31d3f65dc2e98, type: 3}

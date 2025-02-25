@@ -15,9 +15,9 @@ public class WeaponShop : MonoBehaviour
 
     public void BuyWeapon(int index)
     {
-        if (playerData.Dinheiro >= weaponPrices[index])
+        if (playerData.dinheiro >= weaponPrices[index])
         {
-            playerData.Dinheiro -= weaponPrices[index]; // Deduz o dinheiro
+            playerData.dinheiro -= weaponPrices[index]; // Deduz o dinheiro
             weaponManager.UnlockWeapon(index);          // Desbloqueia a arma no WeaponManager
             UpdateShopUI();                             // Atualiza a interface da loja
         }

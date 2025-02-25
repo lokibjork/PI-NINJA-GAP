@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Player
 {
@@ -7,9 +6,9 @@ namespace Player
     {
         public int maxHealth = 5;
         public int currentHealth;
-        public int Dinheiro = 100;  // Quantidade de dinheiro inicial
+        public int dinheiro = 100;  // Quantidade de dinheiro inicial
         public int experience = 0;
-        
+
         public HealthBar healthBar;
 
         void Start()
@@ -21,6 +20,7 @@ namespace Player
         public void TakeDamage(int damage)
         {
             currentHealth -= damage;
+            healthBar.SetHealth(currentHealth);
             Debug.Log("Tomei " + damage + " de dano. Vida atual: " + currentHealth);
 
             if (currentHealth <= 0)
@@ -34,6 +34,8 @@ namespace Player
             currentHealth += amount;
             if (currentHealth > maxHealth)
                 currentHealth = maxHealth;
+
+            healthBar.SetHealth(currentHealth);
             Debug.Log("Recuperei " + amount + " de vida. Vida atual: " + currentHealth);
         }
 
