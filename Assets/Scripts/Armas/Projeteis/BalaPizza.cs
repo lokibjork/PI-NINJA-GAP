@@ -8,7 +8,7 @@ public class BalaPizza : Projectile
         {
             // Configurações para o projétil de pizza (boomerang)
             speed = 12f;         // Velocidade média
-            damage = 15f;        // Dano moderado
+            damage = 3;        // Dano moderado
             lifetime = 5f;       // Maior tempo de vida para o efeito boomerang
             isBoomerang = true;  // Ativa o comportamento de boomerang (já tratado no Update do base Projectile)
             isBouncing = false;

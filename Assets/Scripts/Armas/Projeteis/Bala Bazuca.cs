@@ -6,7 +6,7 @@ public class BalaBazuca : Projectile
     {
         // Configurações para o projétil da bazuca
         speed = 15f;          // Lento
-        damage = 20f;        // Dano alto
+        damage = 4;        // Dano alto
         lifetime = 1f;       // Pode ter um tempo de vida maior para simular a trajetória lenta
         isRocket = true;     // Ativa comportamento de foguete (explosão)
         isBouncing = false;

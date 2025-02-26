@@ -3,7 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed;
-    public float damage;
+    public int damage;
     public float lifetime;
     public bool isBouncing;
     public bool isBoomerang;

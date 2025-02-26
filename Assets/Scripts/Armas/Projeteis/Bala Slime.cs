@@ -5,7 +5,7 @@ using UnityEngine;
         {
             // Configurações para o projétil de slime
             speed = 10f;         // Velocidade moderada
-            damage = 5f;         // Dano baixo
+            damage = 1;         // Dano baixo
             lifetime = 4f;       // Tempo suficiente para quicar
             isBouncing = true;   // Ativa o comportamento de quique
             isBoomerang = false;
