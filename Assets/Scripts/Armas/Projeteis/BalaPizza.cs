@@ -8,9 +8,9 @@ public class BalaPizza : Projectile
         {
             // Configurações para o projétil de pizza (boomerang)
             speed = 12f;         // Velocidade média
-            damage = 3;        // Dano moderado
-            lifetime = 5f;       // Maior tempo de vida para o efeito boomerang
-            isBoomerang = true;  // Ativa o comportamento de boomerang (já tratado no Update do base Projectile)
+            damage = 3;       
+            lifetime = 5f;       
+            isBoomerang = true;  
             isBouncing = false;
             isRocket = false;
         }
@@ -38,6 +38,7 @@ public class BalaPizza : Projectile
                 PlayerData playerData = collision.gameObject.GetComponent<PlayerData>();
                 if(playerData != null)
                 {
+                    Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
                     playerData.TakeDamage((int)damage);
                     hasDamagedPlayer = true;
                 }

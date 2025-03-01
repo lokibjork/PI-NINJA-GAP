@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
     private Vector3 startDirection;
     public bool returning = false;
     private Vector3 startPosition;
-    private float journeyTime = 2f;
+    private float journeyTime = 0.5f;
     private float elapsedTime = 0f;
     public float returnDistance = 6f;
     private ScreenShaker screenShaker;
