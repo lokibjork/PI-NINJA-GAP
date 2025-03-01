@@ -21,15 +21,16 @@ public class Robo : EnemyBase
 
     void Update()
     {
-        if (target != null)
-        {
-            Vector2 direction = (target.position - transform.position).normalized;
-            rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Player"))
+        {
+            Follow();
+        }
+        
         if (collision.CompareTag(groundTag))
         {
             isGrounded = true;
@@ -57,6 +58,15 @@ public class Robo : EnemyBase
         else if (collision.gameObject.CompareTag(groundTag) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
+    }
+    
+    private void Follow()
+    {
+        if (target != null)
+        {
+            Vector2 direction = (target.position - transform.position).normalized;
+            rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
         }
     }
 }

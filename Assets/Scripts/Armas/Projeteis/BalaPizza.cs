@@ -21,8 +21,15 @@ public class BalaPizza : Projectile
             // Se colidir com um inimigo, não destrói o projétil nem causa dano (comportamento especial)
             if(collision.gameObject.CompareTag("Enemy"))
             {
-                // Você pode adicionar aqui lógica de dano ao inimigo se quiser
-                return;
+                EnemyBase enemy = collision.gameObject.GetComponent<EnemyBase>();
+                if (enemy != null)
+                {
+                    // Calcula a direção do knockback baseado na posição do tiro e do inimigo
+                    Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
+    
+                    enemy.TakeDamage(damage, knockbackDir);
+                    Destroy(gameObject); // Destroi o projétil após o impacto
+                }
             }
 
             // Se o projétil estiver retornando e atingir o jogador, aplica dano

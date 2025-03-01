@@ -17,7 +17,7 @@ public class EnemyBase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public virtual void TakeDamage(int damage, Vector2 knockbackDirection)
+    public void TakeDamage(int damage, Vector2 knockbackDirection)
     {
         currentHealth -= damage;
 
