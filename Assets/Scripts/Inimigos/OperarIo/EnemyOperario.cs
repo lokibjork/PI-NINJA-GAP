@@ -2,7 +2,7 @@ using System.Collections;
 using Player;
 using UnityEngine;
 
-public class EnemyOperario : MonoBehaviour
+public class Operario : EnemyBase
 {
     public float patrolSpeed = 2f;
     public float chargeSpeed = 6f;
@@ -12,20 +12,23 @@ public class EnemyOperario : MonoBehaviour
     
     private Transform player;
     private Rigidbody2D rb;
-    private Vector2 originalPosition;
     private bool isCharging = false;
     private bool canCharge = true;
+    private bool playerDetected = false; // NOVO: Se detectou o player, ele nunca mais patrulha
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        originalPosition = transform.position;
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
-        if (!isCharging)
+        if (playerDetected)
+        {
+            FollowPlayer();
+        }
+        else if (!isCharging)
         {
             Patrol();
             DetectPlayer();
@@ -34,7 +37,6 @@ public class EnemyOperario : MonoBehaviour
 
     void Patrol()
     {
-        // Lógica de patrulha simples (andar de um lado para o outro)
         rb.linearVelocity = new Vector2(patrolSpeed, rb.linearVelocity.y);
     }
 
@@ -44,39 +46,45 @@ public class EnemyOperario : MonoBehaviour
         
         if (distanceToPlayer <= detectionRange && canCharge)
         {
+            playerDetected = true; // NOVO: Ele nunca mais volta a patrulhar
             StartCoroutine(ChargeAttack());
         }
     }
 
-    System.Collections.IEnumerator ChargeAttack()
+    void FollowPlayer()
+    {
+        float direction = Mathf.Sign(player.position.x - transform.position.x);
+        rb.linearVelocity = new Vector2(direction * patrolSpeed, rb.linearVelocity.y);
+    }
+
+    IEnumerator ChargeAttack()
     {
         isCharging = true;
         canCharge = false;
 
-        rb.linearVelocity = Vector2.zero; // Para antes de carregar o ataque
-        yield return new WaitForSeconds(0.5f); // Tempo de "preparo" do ataque
+        rb.linearVelocity = Vector2.zero;
+        yield return new WaitForSeconds(0.5f);
 
-        // Calcula a direção para o jogador, mas só no eixo X
         float direction = Mathf.Sign(player.position.x - transform.position.x);
         rb.linearVelocity = new Vector2(direction * chargeSpeed, rb.linearVelocity.y);
 
         yield return new WaitForSeconds(chargeTime);
 
-        rb.linearVelocity = Vector2.zero; // Para após o ataque
+        rb.linearVelocity = Vector2.zero;
         yield return new WaitForSeconds(chargeCooldown);
         
         isCharging = false;
         canCharge = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision, int damage)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerData playerData = collision.gameObject.GetComponent<PlayerData>();
             if (playerData != null)
             {
-                //playerData.TakeDamage(damage);
+                playerData.TakeDamage(damage);
             }
         }
     }
