@@ -11,13 +11,16 @@ public class Operario : EnemyBase
     public float chargeTime = 1f;
     
     private Transform player;
-    private Rigidbody2D rb;
+    private new Rigidbody2D rb;
     private bool isCharging = false;
     private bool canCharge = true;
     private bool playerDetected = false; // NOVO: Se detectou o player, ele nunca mais patrulha
 
-    void Start()
+    public new void Start()
     {
+        base.Start();
+        maxHealth = 5; // Bastante vida
+        currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
