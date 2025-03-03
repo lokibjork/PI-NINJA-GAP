@@ -1,7 +1,7 @@
 using UnityEngine;
 using Player;
 
-public class Drone : EnemyBase
+public class Drone : MonoBehaviour
 {
     public float moveSpeed = 3f;        // Velocidade de movimentação
     public float hoverHeight = 2f;      // Altura ideal para voar acima do player

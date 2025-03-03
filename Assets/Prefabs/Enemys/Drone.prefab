@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8010161329282102944}
   - component: {fileID: 7301493645006285513}
   - component: {fileID: 2426848763920654260}
+  - component: {fileID: 3203366466381880035}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Enemy
@@ -165,8 +166,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fd88347a76b22443b6754e5d61641ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 2
+  knockbackForce: 5
+  flashTime: 0.1
   moveSpeed: 3
   hoverHeight: 2
   circleRadius: 1.5
   circleSpeed: 2
   damage: 5
+--- !u!70 &3203366466381880035
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3738978482055961328}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
