@@ -7,7 +7,7 @@ public class EnemyBase : MonoBehaviour
     protected int currentHealth;
     public float knockbackForce = 5f;
     public float flashTime = 0.1f;
-    protected SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
     protected Rigidbody2D rb;
 
     protected virtual void Start()

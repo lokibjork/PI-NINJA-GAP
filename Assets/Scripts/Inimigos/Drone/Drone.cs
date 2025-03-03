@@ -1,7 +1,7 @@
 using UnityEngine;
 using Player;
 
-public class Drone : MonoBehaviour
+public class Drone : EnemyBase
 {
     public float moveSpeed = 3f;        // Velocidade de movimentação
     public float hoverHeight = 2f;      // Altura ideal para voar acima do player
@@ -10,10 +10,10 @@ public class Drone : MonoBehaviour
     public int damage = 5;              // Dano ao encostar no player
 
     private Transform player;
-    private Rigidbody2D rb;
+    private new Rigidbody2D rb;
     private float angle = 0f;           // Ângulo para circular o player
 
-    void Start()
+    new void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
