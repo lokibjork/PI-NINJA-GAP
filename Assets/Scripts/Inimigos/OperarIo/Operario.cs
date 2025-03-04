@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyOperario : EnemyBase
+public class Operario : EnemyBase
 {
     public float patrolSpeed = 2f;
     public float chargeSpeed = 6f;
@@ -13,8 +13,11 @@ public class EnemyOperario : EnemyBase
     private bool isCharging = false;
     private bool canCharge = true;
 
-    void Start()
+    new void Start()
     {
+        base.Start();
+        maxHealth = 10; // Bastante vida
+        currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 

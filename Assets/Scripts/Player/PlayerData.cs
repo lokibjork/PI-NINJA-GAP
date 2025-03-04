@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -41,8 +42,7 @@ namespace Player
 
         void Die()
         {
-            Debug.Log("Morri! Game Over...");
-            // Implemente lógica de respawn ou Game Over aqui
+            SceneManager.LoadScene("Menu");
         }
     }
 }
