@@ -8,7 +8,12 @@ public class EnemyBase : MonoBehaviour
     public float knockbackForce = 5f;
     public float flashTime = 0.1f;
     private SpriteRenderer spriteRenderer;
-    protected Rigidbody2D rb;
+    protected Rigidbody2D rb; // Protegido para ser acessado nas classes filhas
+
+    protected virtual void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     protected virtual void Start()
     {
