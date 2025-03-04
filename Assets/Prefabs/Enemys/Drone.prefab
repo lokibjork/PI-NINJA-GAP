@@ -166,9 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fd88347a76b22443b6754e5d61641ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
-  knockbackForce: 5
-  flashTime: 0.1
   moveSpeed: 3
   hoverHeight: 2
   circleRadius: 1.5

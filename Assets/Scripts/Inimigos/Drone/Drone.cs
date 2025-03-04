@@ -10,10 +10,10 @@ public class Drone : MonoBehaviour
     public int damage = 5;              // Dano ao encostar no player
 
     private Transform player;
-    private new Rigidbody2D rb;
+    private Rigidbody2D rb;
     private float angle = 0f;           // Ângulo para circular o player
 
-    new void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -44,7 +44,8 @@ public class Drone : MonoBehaviour
             PlayerData playerData = collision.GetComponent<PlayerData>();
             if (playerData != null)
             {
-                playerData.TakeDamage(damage);
+                Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
+                playerData.TakeDamage(5); // 5 de dano e força de 3
             }
         }
     }

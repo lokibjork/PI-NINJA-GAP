@@ -16,7 +16,7 @@ public class Operario : EnemyBase
     private bool canCharge = true;
     private bool playerDetected = false; // NOVO: Se detectou o player, ele nunca mais patrulha
 
-    public new void Start()
+    public void Start()
     {
         base.Start();
         maxHealth = 5; // Bastante vida
