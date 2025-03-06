@@ -1,39 +1,37 @@
+using System;
+using Player;
 using UnityEngine;
 
 public class Robo : EnemyBase
 {
     public float moveSpeed = 3f;
     public float jumpForce = 7f;
-    public int damage = 5;
+    public int damage = 5; // Pouco ataque
     public Transform groundCheck;
-    public Transform wallCheck;
-    public string groundTag = "Ground";
-    public string wallTag = "Wall"; // Nova tag para paredes
+    public string groundTag = "Ground"; // Tag usada para identificar o chão
     private Transform target;
     private bool isGrounded;
+    private bool playerIsDetected;
 
     protected override void Start()
     {
         base.Start();
-        maxHealth = 10;
+        maxHealth = 10; // Bastante vida
         currentHealth = maxHealth;
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    private void FixedUpdate()
+    void Update()
     {
-        CheckForGroundAhead();
-        CheckForWall();
-        Move();
+        if (target != null && playerIsDetected)
+        {
+            Vector2 direction = (target.position - transform.position).normalized;
+            rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            Follow();
-        }
-
         if (collision.CompareTag(groundTag))
         {
             isGrounded = true;
@@ -47,9 +45,17 @@ public class Robo : EnemyBase
             isGrounded = false;
         }
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerIsDetected = true;
+        }
+        else
+        {
+            playerIsDetected = false;
+        }
+        
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerData player = collision.gameObject.GetComponent<PlayerData>();
@@ -62,55 +68,5 @@ public class Robo : EnemyBase
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
-    }
-
-    private void Move()
-    {
-        rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y);
-    }
-
-    private void Follow()
-    {
-        if (target != null)
-        {
-            Vector2 direction = (target.position - transform.position).normalized;
-            rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
-        }
-    }
-
-    private void CheckForGroundAhead()
-    {
-        Vector2 rayOrigin = groundCheck.position;
-        Vector2 rayDirection = Vector2.down;
-        float rayDistance = 1f;
-
-        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, rayDirection, rayDistance);
-        Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);
-
-        if (hit.collider == null || !hit.collider.CompareTag(groundTag))
-        {
-            Flip();
-        }
-    }
-
-    private void CheckForWall()
-    {
-        Vector2 rayOrigin = wallCheck.position;
-        Vector2 rayDirection = transform.right;
-        float rayDistance = 0.5f;
-
-        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, rayDirection, rayDistance);
-        Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.blue);
-
-        if (hit.collider != null && hit.collider.CompareTag(wallTag))
-        {
-            Flip();
-        }
-    }
-
-    private void Flip()
-    {
-        moveSpeed = -moveSpeed;
-        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 }
