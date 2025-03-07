@@ -22,18 +22,16 @@ public class DamageHandler : MonoBehaviour
 
         playerData.currentHealth -= damage;
         playerData.healthBar.SetHealth(playerData.currentHealth);
+        
+        // Aplica o knockback
+        rb.linearVelocity = Vector2.zero; // Reseta a velocidade antes de aplicar
+        rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+
+        StartCoroutine(InvulnerabilityCoroutine());
 
         if (playerData.currentHealth <= 0)
         {
-            //Die();
-        }
-        else
-        {
-            // Aplica o knockback
-            rb.linearVelocity = Vector2.zero; // Reseta a velocidade antes de aplicar
-            rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
-
-            StartCoroutine(InvulnerabilityCoroutine());
+            
         }
     }
 

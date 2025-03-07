@@ -1,4 +1,5 @@
 using UnityEngine;
+using Player;
 public class BalaPistola : Projectile
 {
     void Awake()
