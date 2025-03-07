@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 991087068312219978}
   m_Layer: 0
   m_Name: Bala Bazuca
-  m_TagString: Untagged
+  m_TagString: Bala
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

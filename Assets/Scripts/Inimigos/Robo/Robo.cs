@@ -1,24 +1,24 @@
-using System;
 using Player;
 using UnityEngine;
 
 public class Robo : EnemyBase
 {
     public float moveSpeed = 3f;
-    public float jumpForce = 7f;
-    public int damage = 5; // Pouco ataque
-    public Transform groundCheck;
-    public string groundTag = "Ground"; // Tag usada para identificar o chão
+    public float jumpForce = 5;
+    public int damage = 1;
+    public string groundTag = "Ground";
+    
     private Transform target;
     private bool isGrounded;
     private bool playerIsDetected;
+    [SerializeField] private Collider2D detectionCollider; // 🔵 Collider que detecta o player (deve ser setado no Inspector)
 
-    protected override void Start()
+    private void Start()
     {
         base.Start();
-        maxHealth = 10; // Bastante vida
+        maxHealth = 10;
         currentHealth = maxHealth;
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
     void Update()
@@ -30,43 +30,60 @@ public class Robo : EnemyBase
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag(groundTag))
-        {
-            isGrounded = true;
-        }
-    }
-
+    // 🔵 Detecta o player dentro do círculo de detecção
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag(groundTag))
-        {
-            isGrounded = false;
-        }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            playerIsDetected = true;
-        }
-        else
+        if (collision.CompareTag("Player"))
         {
             playerIsDetected = false;
         }
-        
-        if (collision.gameObject.CompareTag("Player"))
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject obj = collision.gameObject;
+
+        if (obj.CompareTag("Player"))
         {
-            PlayerData player = collision.gameObject.GetComponent<PlayerData>();
+            playerIsDetected = true; // Garante que o robô reconheça o player no contato
+
+            PlayerData player = obj.GetComponent<PlayerData>();
             if (player != null)
             {
                 player.TakeDamage(damage);
             }
         }
-        else if (collision.gameObject.CompareTag(groundTag) && isGrounded)
+
+        if (obj.CompareTag(groundTag))
         {
+            isGrounded = true;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
+    }
+
+    // 🔴 Filtramos projéteis para que só colidam com o corpo do robô, e não com a detecção
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerIsDetected = true;
+        }
+        
+        if (collision.CompareTag("Bala"))
+        {
+            if (collision.IsTouching(detectionCollider)) // Se o projétil atingir o Collider de detecção, ignoramos
+            {
+                Physics2D.IgnoreCollision(collision, detectionCollider);
+                return;
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(groundTag))
+        {
+            isGrounded = false;
         }
     }
 }
