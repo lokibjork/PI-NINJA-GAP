@@ -5,6 +5,7 @@ public class WeaponManager : MonoBehaviour
 {
     public Weapon[] weapons; // Array com as armas
     public int currentWeaponIndex = 0;
+    public WeaponUI WeaponUI;
 
     public InputActionAsset inputActions;
     private InputAction changeWeaponAction;

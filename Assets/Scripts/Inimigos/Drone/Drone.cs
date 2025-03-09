@@ -7,7 +7,7 @@ public class Drone : EnemyBase
     public float hoverHeight = 2f;      // Altura ideal para voar acima do player
     public float circleRadius = 1.5f;   // Raio do círculo ao redor do player
     public float circleSpeed = 2f;      // Velocidade da rotação em torno do player
-    public int damage = 5;              // Dano ao encostar no player
+    public int damage = 1;              // Dano ao encostar no player
 
     private Transform player;
     private float angle = 0f;           // Ângulo para circular o player
@@ -40,12 +40,14 @@ public class Drone : EnemyBase
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        GameObject obj = collision.gameObject;
+        
+        if (obj.CompareTag("Player"))
         {
-            PlayerData playerData = collision.GetComponent<PlayerData>();
-            if (playerData != null)
+            PlayerData player = obj.GetComponent<PlayerData>();
+            if (player != null)
             {
-                playerData.TakeDamage(5); // 5 de dano e força de 3
+                player.TakeDamage(damage);
             }
         }
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TitleOverlay : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class TitleOverlay : MonoBehaviour
     public TMP_Text pressAnyKeyText;
     public AudioSource fadeOutSound;
     public float fadeDuration = 1f;
+    [SerializeField] private GameObject FirstOption;
 
     private bool isFading = false;
 
@@ -72,7 +74,8 @@ public class TitleOverlay : MonoBehaviour
         }
 
         overlayPanel.SetActive(false);
-        mainMenuPanel.SetActive(true); // Ativa o menu principal
+        mainMenuPanel.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(FirstOption);// Ativa o menu principal
     }
 }
 

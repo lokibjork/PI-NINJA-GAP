@@ -2607,6 +2607,7 @@ MonoBehaviour:
   pressAnyKeyText: {fileID: 1978836340}
   fadeOutSound: {fileID: 1546031943}
   fadeDuration: 1
+  FirstOption: {fileID: 706132076}
 --- !u!225 &1546031938
 CanvasGroup:
   m_ObjectHideFlags: 0
