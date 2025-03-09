@@ -5,7 +5,7 @@ public class WeaponManager : MonoBehaviour
 {
     public Weapon[] weapons; // Array com as armas
     public int currentWeaponIndex = 0;
-    public WeaponUI WeaponUI;
+    public WeaponUI weaponUI; // UI da arma
 
     public InputActionAsset inputActions;
     private InputAction changeWeaponAction;
@@ -40,7 +40,10 @@ public class WeaponManager : MonoBehaviour
         {
             bool isActive = (i == index);
             weapons[i].gameObject.SetActive(isActive);
-            Debug.Log($"Arma {weapons[i].name} ativa? {isActive}");
+            if (isActive)
+            {
+                weaponUI.UpdateWeaponUI(weapons[i].weaponIcon, weapons[i].currentAmmo, weapons[i].maxAmmo);
+            }
         }
     }
 
@@ -58,5 +61,10 @@ public class WeaponManager : MonoBehaviour
     public void UnlockWeapon(int index)
     {
         weapons[index].isUnlocked = true;
+    }
+
+    public void UpdateAmmoUI(int currentAmmo, int maxAmmo)
+    {
+        weaponUI.UpdateAmmoUI(currentAmmo, maxAmmo);
     }
 }

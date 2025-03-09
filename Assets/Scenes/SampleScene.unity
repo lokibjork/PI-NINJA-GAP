@@ -828,7 +828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe7f2d665099874aba49380ec56f470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponIcon: {fileID: 1585609800}
+  weaponIconImage: {fileID: 1585609800}
   ammoText: {fileID: 1075614297}
 --- !u!1 &749775202
 GameObject:
@@ -3939,7 +3939,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 25/25
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf517318076801c42ba2186b249b942e, type: 2}
   m_sharedMaterial: {fileID: 9106427312266026871, guid: bf517318076801c42ba2186b249b942e, type: 2}
@@ -4269,10 +4269,38 @@ PrefabInstance:
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 1249789914467050544}
+    - target: {fileID: 2115565412314337420, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: weaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: c7ede96cc0416f54ca49c73d8dbf1eb7, type: 3}
+    - target: {fileID: 2115565412314337420, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: weaponName
+      value: Pistola
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115565412314337420, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: weaponManager
+      value: 
+      objectReference: {fileID: 1249789914467050549}
+    - target: {fileID: 2313335423680960967, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: weaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 7c724e32036f6ae449dd1ed9f2a56652, type: 3}
+    - target: {fileID: 2313335423680960967, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: weaponName
+      value: Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313335423680960967, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: weaponManager
+      value: 
+      objectReference: {fileID: 1249789914467050549}
     - target: {fileID: 3425172458305328079, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3626991329815981103, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: weaponUI
+      value: 
+      objectReference: {fileID: 643075997}
     - target: {fileID: 4516964625744704100, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
       propertyPath: healthBar
       value: 
@@ -4321,6 +4349,26 @@ PrefabInstance:
       propertyPath: lengthInSec
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 6026906144718404103, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: weaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: dbc479c99a5d02b48a580eb612096cf2, type: 3}
+    - target: {fileID: 6026906144718404103, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: weaponManager
+      value: 
+      objectReference: {fileID: 1249789914467050549}
+    - target: {fileID: 6679236913894590462, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: weaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 1bfe54506468ea74aa610f3e5f4366ff, type: 3}
+    - target: {fileID: 6679236913894590462, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: weaponName
+      value: Pizza
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679236913894590462, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: weaponManager
+      value: 
+      objectReference: {fileID: 1249789914467050549}
     - target: {fileID: 9215258429239323503, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4335,6 +4383,17 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 9215258429239323503, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
   m_PrefabInstance: {fileID: 1249789914467050543}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1249789914467050549 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3626991329815981103, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+  m_PrefabInstance: {fileID: 1249789914467050543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16493ca15ed62d94e84c3526f0328186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5150329822503022934
 PrefabInstance:
   m_ObjectHideFlags: 0

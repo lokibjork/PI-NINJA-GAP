@@ -26,7 +26,7 @@ public class PizzaGun : Weapon
             
             Instantiate(projectilePrefab, shootPoint.position, projRotation);
             currentAmmo--;
-            Debug.Log("Arma de Pizza atirou!");
+            weaponManager.UpdateAmmoUI(currentAmmo, maxAmmo);
         }
         else
         {

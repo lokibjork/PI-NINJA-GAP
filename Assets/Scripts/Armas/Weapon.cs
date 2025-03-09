@@ -3,10 +3,12 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     // Propriedades da arma
+    public Sprite weaponIcon;
     public string weaponName = "";
     public int maxAmmo;             // Munição máxima
-    public int currentAmmo;
-    public bool infiniteAmmo = false;// Munição atual
+    public int currentAmmo; // Munição atual
+    public bool infiniteAmmo = false;
+    public WeaponManager weaponManager;
 
     public float fireRate;          // Taxa de disparo
 

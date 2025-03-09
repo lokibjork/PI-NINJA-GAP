@@ -26,7 +26,7 @@ public class SlimePistol : Weapon
             
             Instantiate(projectilePrefab, shootPoint.position, projRotation);
             currentAmmo--;
-            Debug.Log("Pistola de Slime atirou!");
+            weaponManager.UpdateAmmoUI(currentAmmo, maxAmmo);
         }
         else
         {

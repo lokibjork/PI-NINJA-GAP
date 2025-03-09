@@ -4,13 +4,16 @@ using UnityEngine.UI;
 
 public class WeaponUI : MonoBehaviour
 {
-    public Image weaponIcon;
-    public TMP_Text ammoText;
+    public Image weaponIconImage;  // Referência à imagem na UI
+    public TMP_Text ammoText;         // Referência ao texto de munição
 
-    public void UpdateWeaponUI(Sprite newIcon, int currentAmmo, int maxAmmo)
+    public void UpdateWeaponUI(Sprite icon, int currentAmmo, int maxAmmo)
     {
-        weaponIcon.sprite = newIcon;
-        ammoText.text = $"{currentAmmo} / {maxAmmo}";
+        if (weaponIconImage != null && icon != null)
+        {
+            weaponIconImage.sprite = icon;
+        }
+        UpdateAmmoUI(currentAmmo, maxAmmo);
     }
 
     public void UpdateAmmoUI(int currentAmmo, int maxAmmo)

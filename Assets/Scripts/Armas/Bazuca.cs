@@ -28,7 +28,7 @@ public class Bazuca : Weapon
         
             Instantiate(projectilePrefab, shootPoint.position, projRotation);
             currentAmmo--;
-            Debug.Log("Bazuca atirou!");
+            weaponManager.UpdateAmmoUI(currentAmmo, maxAmmo);
         }
         else
         {
