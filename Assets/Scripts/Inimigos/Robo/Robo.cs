@@ -1,89 +1,58 @@
-using Player;
 using UnityEngine;
 
 public class Robo : EnemyBase
 {
-    public float moveSpeed = 3f;
-    public float jumpForce = 5;
-    public int damage = 1;
-    public string groundTag = "Ground";
-    
-    private Transform target;
-    private bool isGrounded;
-    private bool playerIsDetected;
-    [SerializeField] private Collider2D detectionCollider; // 🔵 Collider que detecta o player (deve ser setado no Inspector)
+    public float runSpeed = 3f;
+    public float jumpForce = 8f;
+    public float detectionRange = 5f;
+    public float attackCooldown = 2f;
 
-    private void Start()
+    private Transform player;
+    private bool isAttacking = false;
+    private float cooldownTimer = 0f;
+
+    protected override void Start()
     {
         base.Start();
-        maxHealth = 10;
-        currentHealth = maxHealth;
-        target = GameObject.FindGameObjectWithTag("Player")?.transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
-        if (target != null && playerIsDetected)
+        if (isAttacking)
         {
-            Vector2 direction = (target.position - transform.position).normalized;
-            rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
-        }
-    }
-
-    // 🔵 Detecta o player dentro do círculo de detecção
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            playerIsDetected = false;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        GameObject obj = collision.gameObject;
-
-        if (obj.CompareTag("Player"))
-        {
-            playerIsDetected = true; // Garante que o robô reconheça o player no contato
-
-            PlayerData player = obj.GetComponent<PlayerData>();
-            if (player != null)
+            cooldownTimer -= Time.deltaTime;
+            if (cooldownTimer <= 0)
             {
-                player.TakeDamage(damage);
+                isAttacking = false;
             }
+            return;
         }
 
-        if (obj.CompareTag(groundTag))
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        if (distanceToPlayer <= detectionRange)
         {
-            isGrounded = true;
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            AttackPlayer();
+        }
+        else
+        {
+            RunTowardsPlayer();
         }
     }
 
-    // 🔴 Filtramos projéteis para que só colidam com o corpo do robô, e não com a detecção
-    private void OnTriggerEnter2D(Collider2D collision)
+    void RunTowardsPlayer()
     {
-        if (collision.CompareTag("Player"))
-        {
-            playerIsDetected = true;
-        }
-        
-        if (collision.CompareTag("Bala"))
-        {
-            if (collision.IsTouching(detectionCollider)) // Se o projétil atingir o Collider de detecção, ignoramos
-            {
-                Physics2D.IgnoreCollision(collision, detectionCollider);
-                return;
-            }
-        }
+        Vector2 direction = (player.position - transform.position).normalized;
+        rb.linearVelocity = new Vector2(direction.x * runSpeed, rb.linearVelocity.y);
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    void AttackPlayer()
     {
-        if (collision.gameObject.CompareTag(groundTag))
-        {
-            isGrounded = false;
-        }
+        isAttacking = true;
+        cooldownTimer = attackCooldown;
+
+        Vector2 jumpDirection = (player.position - transform.position).normalized;
+        rb.linearVelocity = new Vector2(jumpDirection.x * jumpForce, jumpForce);
     }
 }
