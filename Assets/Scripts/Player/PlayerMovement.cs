@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;
     public bool isFacingRight;
     public ParticleSystem dust;
+    [SerializeField] public AudioClip _jumpClip;
 
     private void Start()
     {
@@ -38,7 +39,8 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // Alterado para velocity em vez de linearVelocity
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            SoundManagerSO.PlaySoundFXClip(_jumpClip, transform.position, 1f);// Alterado para velocity em vez de linearVelocity
         }
         if (Input.GetButton("Jump") && isJumping)
         {

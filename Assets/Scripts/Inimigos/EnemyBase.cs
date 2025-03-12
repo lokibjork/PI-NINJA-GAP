@@ -8,7 +8,8 @@ public class EnemyBase : MonoBehaviour
     public float knockbackForce = 5f;
     public float flashTime = 0.1f;
     private SpriteRenderer spriteRenderer;
-    protected Rigidbody2D rb; // Protegido para ser acessado nas classes filhas
+    protected Rigidbody2D rb;
+    [SerializeField] public AudioClip _hitClip; // Protegido para ser acessado nas classes filhas
 
     protected virtual void Awake()
     {
@@ -29,6 +30,7 @@ public class EnemyBase : MonoBehaviour
         // Aplica knockback
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+        SoundManagerSO.PlaySoundFXClip(_hitClip, transform.position, 1f);
 
         // Pisca branco
         StartCoroutine(FlashWhite());
@@ -49,5 +51,13 @@ public class EnemyBase : MonoBehaviour
     protected virtual void Die()
     {
         Destroy(gameObject);
+    }
+
+    protected void Flip(float directionX)
+    {
+        if (directionX > 0 && transform.localScale.x < 0 || directionX < 0 && transform.localScale.x > 0)
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
     }
 }

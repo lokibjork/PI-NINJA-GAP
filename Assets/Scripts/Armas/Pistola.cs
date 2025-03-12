@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class Pistola : Weapon
 {
     private void Start()
@@ -25,7 +26,6 @@ public class Pistola : Weapon
             }
             
             Instantiate(projectilePrefab, shootPoint.position, projRotation);
-            Debug.Log("Arma Básica atirou!");
         }
     }
 }
