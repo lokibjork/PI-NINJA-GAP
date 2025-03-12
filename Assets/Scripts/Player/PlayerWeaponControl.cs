@@ -23,6 +23,9 @@ public class PlayerWeaponControl : MonoBehaviour
         // Se o jogador soltar o botão de mirar para cima, volta para direita/esquerda
         if (yInput == 0 && aimDirection == Vector2.up)
             aimDirection = _playerMovement.isFacingRight ? Vector2.right : Vector2.left;
+        
+        if (yInput == 0 && aimDirection == Vector2.down)
+            aimDirection = _playerMovement.isFacingRight ? Vector2.right : Vector2.left;
 
         UpdateWeaponTransform(aimDirection);
     }
