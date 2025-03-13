@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isFacingRight;
     public ParticleSystem dust;
     [SerializeField] public AudioClip _jumpClip;
+    [SerializeField] public AudioClip _runClip;
 
     private void Start()
     {
@@ -31,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         // Input de movimento (sem suavização de flip)
-        moveInput = Input.GetAxis("Horizontal");
+        moveInput = Input.GetAxisRaw("Horizontal");
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y); // Alterado para velocity em vez de linearVelocity
         
         // Pulo dinâmico

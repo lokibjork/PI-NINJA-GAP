@@ -13,6 +13,7 @@ public class WeaponManager : MonoBehaviour
 
     public float switchCooldown = 0.3f;
     private float lastSwitchTime = 0f;
+    public AudioClip switchSound;
 
     void Awake()
     {
@@ -42,6 +43,7 @@ public class WeaponManager : MonoBehaviour
             weapons[i].gameObject.SetActive(isActive);
             if (isActive)
             {
+                SoundManagerSO.PlaySoundFXClip(switchSound, transform.position, 0.5f);
                 weaponUI.UpdateWeaponUI(weapons[i].weaponIcon, weapons[i].currentAmmo, weapons[i].maxAmmo);
             }
         }

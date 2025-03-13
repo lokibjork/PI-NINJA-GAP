@@ -13,7 +13,6 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
-        // Aqui usamos o botão de tiro (pode ser configurado via Input System ou Input.GetButton)
         if (Input.GetButton("Fire1"))
         {
             // Pegamos a arma ativa pelo índice que o WeaponManager mantém

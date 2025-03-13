@@ -24,7 +24,9 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, lifetime);
         startDirection = transform.rotation * Vector3.right;
         startPosition = transform.position;
+#pragma warning disable CS0618 // Type or member is obsolete
         screenShaker = FindObjectOfType<ScreenShaker>();
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 
     void Update()

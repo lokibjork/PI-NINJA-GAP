@@ -3986,6 +3986,24 @@ Transform:
   - {fileID: 824233430}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1413697182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9016449261402594697, guid: 7627df52cbbe9124fb91337d076411fc, type: 3}
+  m_PrefabInstance: {fileID: 6984032106091022313}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1413697192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413697182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4aaef5bd10aef64bb24ed1a7759f65a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 397372754687942956, guid: 04c849487277b1941905fa890e8b51a5, type: 3}
 --- !u!1 &1524847942
 GameObject:
   m_ObjectHideFlags: 0
@@ -4123,11 +4141,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1585609798}
   m_CullTransparentMesh: 1
---- !u!4 &1923128242 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5062551640644594479, guid: 0432208f310f8f64282e7beb71929035, type: 3}
-  m_PrefabInstance: {fileID: 5387212575143912536}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1249789914467050543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4141,6 +4154,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1249789914467050544}
     - target: {fileID: 2115565412314337420, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: pistolClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b2f1fd1d979d41c4ba8d4ef0776a9e73, type: 3}
+    - target: {fileID: 2115565412314337420, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
       propertyPath: weaponIcon
       value: 
       objectReference: {fileID: 21300000, guid: c7ede96cc0416f54ca49c73d8dbf1eb7, type: 3}
@@ -4152,6 +4169,10 @@ PrefabInstance:
       propertyPath: weaponManager
       value: 
       objectReference: {fileID: 1249789914467050549}
+    - target: {fileID: 2313335423680960967, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: isUnlocked
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2313335423680960967, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
       propertyPath: weaponIcon
       value: 
@@ -4176,6 +4197,10 @@ PrefabInstance:
       propertyPath: weaponUI
       value: 
       objectReference: {fileID: 643075997}
+    - target: {fileID: 3626991329815981103, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: switchSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 610b75cc3bf091c42b2811606dbfb474, type: 3}
     - target: {fileID: 4516964625744704100, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
       propertyPath: healthBar
       value: 
@@ -4229,6 +4254,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5360591799605747559, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: _runClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8fbfbda0a2bb77d4bb4f0a590a9e3bc7, type: 3}
+    - target: {fileID: 5360591799605747559, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
       propertyPath: _jumpClip
       value: 
       objectReference: {fileID: 8300000, guid: 9df0051e9f80ef44ea383cadf369f990, type: 3}
@@ -4248,6 +4277,10 @@ PrefabInstance:
       propertyPath: weaponManager
       value: 
       objectReference: {fileID: 1249789914467050549}
+    - target: {fileID: 6679236913894590462, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
+      propertyPath: isUnlocked
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6679236913894590462, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
       propertyPath: weaponIcon
       value: 
@@ -4393,25 +4426,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6221496846739781396, guid: 14d15f3b83d44e843bc71c65deaf1e64, type: 3}
-      propertyPath: _hitClip
-      value: 
-      objectReference: {fileID: 8300000, guid: a0a1cece1ea4dbe45b8397796a0b2525, type: 3}
-    - target: {fileID: 6221496846739781396, guid: 14d15f3b83d44e843bc71c65deaf1e64, type: 3}
-      propertyPath: maxHealth
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6221496846739781396, guid: 14d15f3b83d44e843bc71c65deaf1e64, type: 3}
-      propertyPath: attackCooldown
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7153218584746056482, guid: 14d15f3b83d44e843bc71c65deaf1e64, type: 3}
       propertyPath: m_Name
       value: Mercenario
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793412778021675657, guid: 14d15f3b83d44e843bc71c65deaf1e64, type: 3}
-      propertyPath: m_Mass
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4537,36 +4554,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 300450407318436887, guid: 0432208f310f8f64282e7beb71929035, type: 3}
-      propertyPath: _hitClip
-      value: 
-      objectReference: {fileID: 8300000, guid: a0a1cece1ea4dbe45b8397796a0b2525, type: 3}
-    - target: {fileID: 300450407318436887, guid: 0432208f310f8f64282e7beb71929035, type: 3}
-      propertyPath: maxHealth
-      value: 4
+      propertyPath: gunDistance
+      value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 300450407318436887, guid: 0432208f310f8f64282e7beb71929035, type: 3}
-      propertyPath: weaponObject
-      value: 
-      objectReference: {fileID: 1923128242}
-    - target: {fileID: 300450407318436887, guid: 0432208f310f8f64282e7beb71929035, type: 3}
-      propertyPath: attackCooldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 300450407318436887, guid: 0432208f310f8f64282e7beb71929035, type: 3}
-      propertyPath: detectionRange
-      value: 6
+    - target: {fileID: 425842053463063587, guid: 0432208f310f8f64282e7beb71929035, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2520343677753379765, guid: 0432208f310f8f64282e7beb71929035, type: 3}
       propertyPath: m_Name
       value: Rico
       objectReference: {fileID: 0}
-    - target: {fileID: 2520343677753379765, guid: 0432208f310f8f64282e7beb71929035, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7134789939354170198, guid: 0432208f310f8f64282e7beb71929035, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
+    - target: {fileID: 5062551640644594479, guid: 0432208f310f8f64282e7beb71929035, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7763700617741682456, guid: 0432208f310f8f64282e7beb71929035, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4607,10 +4608,6 @@ PrefabInstance:
     - target: {fileID: 7763700617741682456, guid: 0432208f310f8f64282e7beb71929035, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8985560488966857534, guid: 0432208f310f8f64282e7beb71929035, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4735,9 +4732,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: a0a1cece1ea4dbe45b8397796a0b2525, type: 3}
     - target: {fileID: 3002400674025674350, guid: 7627df52cbbe9124fb91337d076411fc, type: 3}
+      propertyPath: _killClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ee1329f167a95f74383291dfb4f32a97, type: 3}
+    - target: {fileID: 3002400674025674350, guid: 7627df52cbbe9124fb91337d076411fc, type: 3}
       propertyPath: maxHealth
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3002400674025674350, guid: 7627df52cbbe9124fb91337d076411fc, type: 3}
+      propertyPath: knockbackForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002400674025674350, guid: 7627df52cbbe9124fb91337d076411fc, type: 3}
+      propertyPath: _hitClip.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002400674025674350, guid: 7627df52cbbe9124fb91337d076411fc, type: 3}
+      propertyPath: '_hitClip.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 141f1bb85e6d38a459a23372862861ee, type: 3}
+    - target: {fileID: 3002400674025674350, guid: 7627df52cbbe9124fb91337d076411fc, type: 3}
+      propertyPath: '_hitClip.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1fe013d4521ea894cad0809fa34b7eef, type: 3}
+    - target: {fileID: 3002400674025674350, guid: 7627df52cbbe9124fb91337d076411fc, type: 3}
+      propertyPath: '_hitClip.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b9da60808e9466b458daf59adec37963, type: 3}
+    - target: {fileID: 3002400674025674350, guid: 7627df52cbbe9124fb91337d076411fc, type: 3}
+      propertyPath: '_hitClip.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 36162d86da03f47498eec0490e54c264, type: 3}
     - target: {fileID: 9016449261402594697, guid: 7627df52cbbe9124fb91337d076411fc, type: 3}
       propertyPath: m_Name
       value: Robo
@@ -4745,7 +4770,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9016449261402594697, guid: 7627df52cbbe9124fb91337d076411fc, type: 3}
+      insertIndex: 7
+      addedObject: {fileID: 1413697192}
   m_SourcePrefab: {fileID: 100100000, guid: 7627df52cbbe9124fb91337d076411fc, type: 3}
 --- !u!1001 &7398041936219779008
 PrefabInstance:

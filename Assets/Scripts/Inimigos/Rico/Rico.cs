@@ -6,6 +6,7 @@ public class RicoEnemy : EnemyBase
     public float detectionRange = 8f;
     public GameObject projectilePrefab;
     public Transform firePoint;
+    public float gunDistance = 0.5f;
     public Transform weaponObject; // Objeto que será rotacionado
 
     private Transform player;
@@ -19,6 +20,8 @@ public class RicoEnemy : EnemyBase
 
     void Update()
     {
+        WeaponRot();
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         if (distanceToPlayer <= detectionRange)
@@ -31,6 +34,19 @@ public class RicoEnemy : EnemyBase
         }
 
         cooldownTimer -= Time.deltaTime;
+        
+        
+    }
+
+    private void WeaponRot()
+    {
+        Vector3 playerPos = player.position;
+        Vector3 direction = playerPos - transform.position;
+        
+        weaponObject.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg));
+        
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        weaponObject.position = transform.position + Quaternion.Euler(0, 0, angle) * new Vector3(gunDistance, 0, 0);
     }
 
     void RotateWeapon()
@@ -51,7 +67,7 @@ public class RicoEnemy : EnemyBase
         projectile.GetComponent<Rigidbody2D>().linearVelocity = direction * 5f; // Velocidade do projétil
     }
 
-    void Flip(float directionX)
+    new void Flip(float directionX)
     {
         if (directionX > 0 && transform.localScale.x < 0 || directionX < 0 && transform.localScale.x > 0)
         {

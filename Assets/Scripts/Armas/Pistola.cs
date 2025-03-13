@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Pistola : Weapon
 {
+    public AudioClip pistolClip;
     private void Start()
     {
         weaponName = "Arma Básica";
@@ -26,6 +27,7 @@ public class Pistola : Weapon
             }
             
             Instantiate(projectilePrefab, shootPoint.position, projRotation);
+            SoundManagerSO.PlaySoundFXClip(pistolClip, transform.position, 1f);
         }
     }
 }

@@ -36,7 +36,7 @@ public class SoundManagerSO : ScriptableObject
         a.Play();
     }
     
-    public static void PlaySoundFXClip(AudioClip[] clips, Vector3 soundPos, float volume)
+    public static void PlaySoundFXClips(AudioClip[] clips, Vector3 soundPos, float volume)
     {
         int randClips = Random.Range(0, clips.Length);
         float randVolume = Random.Range(volume - _volumeChangeMultiplier, volume + _volumeChangeMultiplier);
