@@ -55,4 +55,17 @@ public class Robo : EnemyBase
         Vector2 jumpDirection = (player.position - transform.position).normalized;
         rb.linearVelocity = new Vector2(jumpDirection.x * jumpForce, jumpForce);
     }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            DamageHandler damageHandler = collision.gameObject.GetComponent<DamageHandler>();
+            if(damageHandler != null)
+            {
+                Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
+                damageHandler.TakeDamage(1, knockbackDir, 2f);
+            }
+        }
+    }
 }

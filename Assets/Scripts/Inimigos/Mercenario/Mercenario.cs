@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Mercenary : EnemyBase
@@ -48,5 +49,18 @@ public class Mercenary : EnemyBase
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         Vector2 direction = (player.position - firePoint.position).normalized;
         projectile.GetComponent<Rigidbody2D>().linearVelocity = direction * 5f; // Velocidade do projétil
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            DamageHandler damageHandler = collision.gameObject.GetComponent<DamageHandler>();
+            if(damageHandler != null)
+            {
+                Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
+                damageHandler.TakeDamage(damage, knockbackDir, 2f);
+            }
+        }
     }
 }

@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using Player;
 using UnityEngine;
 
 public class Operario : EnemyBase
@@ -8,6 +10,7 @@ public class Operario : EnemyBase
     public float detectionRange = 5f;
     public float chargeCooldown = 2f;
     public float chargeTime = 1f;
+    public int damage = 1;
 
     private Transform player;
     private bool isCharging = false;
@@ -62,5 +65,18 @@ public class Operario : EnemyBase
 
         isCharging = false;
         canCharge = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            DamageHandler damageHandler = collision.gameObject.GetComponent<DamageHandler>();
+            if(damageHandler != null)
+            {
+                Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
+                damageHandler.TakeDamage(1, knockbackDirection, 10f); // Ajuste o dano e força conforme preferir
+            }
+        }
     }
 }

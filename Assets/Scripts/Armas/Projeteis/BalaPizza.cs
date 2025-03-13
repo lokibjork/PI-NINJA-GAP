@@ -35,11 +35,11 @@ public class BalaPizza : Projectile
             // Se o projétil estiver retornando e atingir o jogador, aplica dano
             if (collision.gameObject.CompareTag("Player") && returning && !hasDamagedPlayer)
             {
-                PlayerData playerData = collision.gameObject.GetComponent<PlayerData>();
-                if(playerData != null)
+                DamageHandler damageHandler = collision.gameObject.GetComponent<DamageHandler>();
+                if(damageHandler != null)
                 {
                     Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
-                    playerData.TakeDamage((int)damage);
+                    damageHandler.TakeDamage(1, knockbackDir, 2f);
                     hasDamagedPlayer = true;
                 }
                 // Opcional: você pode decidir se o projétil deve ser destruído ou continuar

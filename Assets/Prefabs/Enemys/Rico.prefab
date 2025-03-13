@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
-  knockbackForce: 5
+  knockbackForce: 10
   flashTime: 0.1
   _hitClip:
   - {fileID: 8300000, guid: 141f1bb85e6d38a459a23372862861ee, type: 3}
@@ -119,7 +119,7 @@ MonoBehaviour:
   detectionRange: 6
   projectilePrefab: {fileID: 6972602283425788897, guid: 34690c3fd09938b4aaeb4460bb4daafd, type: 3}
   firePoint: {fileID: 425842053463063587}
-  gunDistance: 0.5
+  gunDistance: 1.2
   weaponObject: {fileID: 5062551640644594479}
 --- !u!58 &8985560488966857534
 CircleCollider2D:

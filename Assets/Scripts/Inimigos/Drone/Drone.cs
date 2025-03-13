@@ -15,7 +15,7 @@ public class Drone : EnemyBase
     new void Start()
     {
         base.Start();
-        maxHealth = 10; // Bastante vida
+        maxHealth = 4; // Bastante vida
         currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -44,10 +44,11 @@ public class Drone : EnemyBase
         
         if (obj.CompareTag("Player"))
         {
-            PlayerData player = obj.GetComponent<PlayerData>();
-            if (player != null)
+            DamageHandler damageHandler = collision.gameObject.GetComponent<DamageHandler>();
+            if(damageHandler != null)
             {
-                player.TakeDamage(damage);
+                Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
+                damageHandler.TakeDamage(damage, knockbackDir, 100f);
             }
         }
     }

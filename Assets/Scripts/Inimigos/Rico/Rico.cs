@@ -7,8 +7,9 @@ public class RicoEnemy : EnemyBase
     public GameObject projectilePrefab;
     public Transform firePoint;
     public float gunDistance = 0.5f;
-    public Transform weaponObject; // Objeto que será rotacionado
+    public Transform weaponObject;
 
+    public bool isfacingRight;
     private Transform player;
     private float cooldownTimer = 0f;
 
@@ -22,11 +23,18 @@ public class RicoEnemy : EnemyBase
     {
         WeaponRot();
 
+        if (player.position.x < weaponObject.position.x && isfacingRight)
+        {
+            FlipWeapon(weaponObject);
+        }else if (player.position.x > weaponObject.position.x && !isfacingRight)
+        {
+            FlipWeapon(weaponObject);
+        }
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         if (distanceToPlayer <= detectionRange)
         {
-            RotateWeapon();
             if (cooldownTimer <= 0)
             {
                 AttackPlayer();
@@ -34,8 +42,6 @@ public class RicoEnemy : EnemyBase
         }
 
         cooldownTimer -= Time.deltaTime;
-        
-        
     }
 
     private void WeaponRot()
@@ -49,14 +55,10 @@ public class RicoEnemy : EnemyBase
         weaponObject.position = transform.position + Quaternion.Euler(0, 0, angle) * new Vector3(gunDistance, 0, 0);
     }
 
-    void RotateWeapon()
+    void FlipWeapon(Transform weapon)
     {
-        Vector2 direction = (player.position - weaponObject.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        weaponObject.rotation = Quaternion.Euler(0f, 0f, angle);
-
-        // Chama Flip se necessário
-        Flip(direction.x);
+        isfacingRight = !isfacingRight;
+        weapon.localScale = new Vector3(weapon.localScale.x, weapon.localScale.y * -1, weapon.localScale.z);
     }
 
     void AttackPlayer()
@@ -67,11 +69,16 @@ public class RicoEnemy : EnemyBase
         projectile.GetComponent<Rigidbody2D>().linearVelocity = direction * 5f; // Velocidade do projétil
     }
 
-    new void Flip(float directionX)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (directionX > 0 && transform.localScale.x < 0 || directionX < 0 && transform.localScale.x > 0)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            DamageHandler damageHandler = collision.gameObject.GetComponent<DamageHandler>();
+            if(damageHandler != null)
+            {
+                Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
+                damageHandler.TakeDamage(1, knockbackDir, 2f);
+            }
         }
     }
 }

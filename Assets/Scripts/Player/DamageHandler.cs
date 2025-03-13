@@ -1,13 +1,15 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class DamageHandler : MonoBehaviour
 {
     public Player.PlayerData playerData;
     private bool isInvulnerable = false;
-    public float invulnerabilityTime = 0.5f;
+    public float invulnerabilityTime = 0.2f;
     public Rigidbody2D rb;
-    public SpriteRenderer spriteRenderer; // 🔵 Para o efeito de piscar
+    public SpriteRenderer spriteRenderer;
+    public AudioClip _playerHit;
 
     void Start()
     {
@@ -28,6 +30,7 @@ public class DamageHandler : MonoBehaviour
 
         playerData.currentHealth -= damage;
         playerData.healthBar.SetHealth(playerData.currentHealth);
+        SoundManagerSO.PlaySoundFXClip(_playerHit, transform.position, 1f);
 
         // Aplica o knockback
         rb.linearVelocity = Vector2.zero; // 🔄 Corrige problemas com velocidade acumulada
@@ -37,7 +40,7 @@ public class DamageHandler : MonoBehaviour
 
         if (playerData.currentHealth <= 0)
         {
-            // 🔴 Adicione lógica de morte aqui, se precisar
+            Die();
         }
     }
 
@@ -57,5 +60,20 @@ public class DamageHandler : MonoBehaviour
         }
 
         isInvulnerable = false;
+    }
+    
+    public void Heal(int amount)
+    {
+        playerData.currentHealth += amount;
+        if (playerData.currentHealth > playerData.maxHealth)
+            playerData.currentHealth = playerData.maxHealth;
+
+        playerData.healthBar.SetHealth(playerData.currentHealth);
+        Debug.Log("Recuperei " + amount + " de vida. Vida atual: " + playerData.currentHealth);
+    }
+    
+    void Die()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }

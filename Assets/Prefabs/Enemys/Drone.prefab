@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 7301493645006285513}
   - component: {fileID: 8010161329282102944}
   - component: {fileID: 8017138589629113677}
-  - component: {fileID: 6573070266367449605}
-  - component: {fileID: 3293034780236765114}
   - component: {fileID: 3588494785364465412}
   - component: {fileID: 6287141963466592478}
   - component: {fileID: 2426848763920654260}
@@ -195,72 +193,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &6573070266367449605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3738978482055961328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ImpulseDefinition:
-    ImpulseChannel: 1
-    ImpulseShape: 2
-    CustomImpulseShape:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    ImpulseDuration: 0.2
-    ImpulseType: 0
-    DissipationRate: 0.25
-    RawSignal: {fileID: 0}
-    AmplitudeGain: 1
-    FrequencyGain: 1
-    RepeatMode: 0
-    Randomize: 1
-    TimeEnvelope:
-      AttackShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      DecayShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      AttackTime: 0
-      SustainTime: 0.2
-      DecayTime: 0.7
-      ScaleWithImpact: 1
-      HoldForever: 0
-    ImpactRadius: 100
-    DirectionMode: 0
-    DissipationMode: 2
-    DissipationDistance: 100
-    PropagationSpeed: 343
-  DefaultVelocity: {x: 0, y: -1, z: 0}
---- !u!114 &3293034780236765114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3738978482055961328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ec0ddcd27f7ca541b695f91e3e2b773, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shakeForce: 1
 --- !u!114 &3588494785364465412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,9 +271,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fd88347a76b22443b6754e5d61641ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
-  knockbackForce: 20
+  maxHealth: 2
+  knockbackForce: 10
   flashTime: 0.1
+  _hitClip:
+  - {fileID: 8300000, guid: 141f1bb85e6d38a459a23372862861ee, type: 3}
+  - {fileID: 8300000, guid: 1fe013d4521ea894cad0809fa34b7eef, type: 3}
+  - {fileID: 8300000, guid: b9da60808e9466b458daf59adec37963, type: 3}
+  - {fileID: 8300000, guid: 36162d86da03f47498eec0490e54c264, type: 3}
+  _killClip: {fileID: 8300000, guid: ee1329f167a95f74383291dfb4f32a97, type: 3}
   moveSpeed: 1.5
   hoverHeight: 2.5
   circleRadius: 2
