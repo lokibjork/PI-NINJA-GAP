@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isFacingRight;
     public ParticleSystem dust;
     [SerializeField] public AudioClip _jumpClip;
+    [SerializeField] public AudioClip _fallClip;
     [SerializeField] public AudioClip _runClip;
 
     private void Start()
@@ -41,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
             jumpTimeCounter = jumpTime;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            dust.Play();
             SoundManagerSO.PlaySoundFXClip(_jumpClip, transform.position, 1f);// Alterado para velocity em vez de linearVelocity
         }
         if (Input.GetButton("Jump") && isJumping)
@@ -85,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Ground"))
         {
+            SoundManagerSO.PlaySoundFXClip(_fallClip, transform.position, 1f);
             isGrounded = true;
         }
     }
