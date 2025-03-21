@@ -17,10 +17,12 @@ public class PlayerMovement : MonoBehaviour
     private Weapon _weapon;
     public bool isGrounded;
     private float jumpTimeCounter;
-    private bool isJumping;
+    public bool isJumping;
     private float moveInput;
     public bool isFacingRight;
     public ParticleSystem dust;
+    public ParticleSystem _jump;
+    public ParticleSystem _fall;
     [SerializeField] public AudioClip _jumpClip;
     [SerializeField] public AudioClip _fallClip;
     [SerializeField] public AudioClip _runClip;
@@ -88,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Ground"))
         {
             SoundManagerSO.PlaySoundFXClip(_fallClip, transform.position, 1f);
+            _fall.Play();
             isGrounded = true;
         }
     }
@@ -96,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Ground"))
         {
+            _jump.Play();
             isGrounded = false;
         }
     }

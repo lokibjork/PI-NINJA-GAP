@@ -22,14 +22,7 @@ public class RicoEnemy : EnemyBase
     void Update()
     {
         WeaponRot();
-
-        if (player.position.x < weaponObject.position.x && isfacingRight)
-        {
-            FlipWeapon(weaponObject);
-        }else if (player.position.x > weaponObject.position.x && !isfacingRight)
-        {
-            FlipWeapon(weaponObject);
-        }
+        FlipFunction();  
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
@@ -42,6 +35,17 @@ public class RicoEnemy : EnemyBase
         }
 
         cooldownTimer -= Time.deltaTime;
+    }
+
+    private void FlipFunction()
+    {
+        if (player.position.x < weaponObject.position.x && isfacingRight)
+        {
+            FlipWeapon(weaponObject);
+        }else if (player.position.x > weaponObject.position.x && !isfacingRight)
+        {
+            FlipWeapon(weaponObject);
+        }
     }
 
     private void WeaponRot()
@@ -66,7 +70,8 @@ public class RicoEnemy : EnemyBase
         cooldownTimer = attackCooldown;
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         Vector2 direction = (player.position - firePoint.position).normalized;
-        projectile.GetComponent<Rigidbody2D>().linearVelocity = direction * 5f; // Velocidade do projétil
+        projectile.GetComponent<Rigidbody2D>().linearVelocity = direction * 15f;
+        Destroy(projectilePrefab, 1.5f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -13,14 +13,15 @@ public class Operario : EnemyBase
     public int damage = 1;
 
     private Transform player;
+    private Transform operarioTransform;
     private bool isCharging = false;
     private bool canCharge = true;
 
     new void Start()
     {
         base.Start();
-        maxHealth = 10; // Bastante vida
         currentHealth = maxHealth;
+        operarioTransform = gameObject.GetComponent<Transform>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -35,6 +36,8 @@ public class Operario : EnemyBase
 
     void Patrol()
     {
+        float direction = patrolSpeed > 0 ? 1f : -1f;
+        Flip(direction);  // Vira o inimigo conforme a direção da patrulha
         rb.linearVelocity = new Vector2(patrolSpeed, rb.linearVelocity.y);
     }
 
@@ -56,6 +59,7 @@ public class Operario : EnemyBase
         yield return new WaitForSeconds(0.5f);
 
         float direction = Mathf.Sign(player.position.x - transform.position.x);
+        Flip(direction);  // Vira o inimigo na direção do jogador
         rb.linearVelocity = new Vector2(direction * chargeSpeed, rb.linearVelocity.y);
 
         yield return new WaitForSeconds(chargeTime);
@@ -75,7 +79,7 @@ public class Operario : EnemyBase
             if(damageHandler != null)
             {
                 Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
-                damageHandler.TakeDamage(1, knockbackDirection, 10f); // Ajuste o dano e força conforme preferir
+                damageHandler.TakeDamage(1, knockbackDirection, 10f);
             }
         }
     }
