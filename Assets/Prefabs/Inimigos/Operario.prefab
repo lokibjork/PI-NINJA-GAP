@@ -155,8 +155,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: 0.021925613, y: -0.1699245}
+  m_Radius: 0.5054815
 --- !u!114 &3430296718175285832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b9da60808e9466b458daf59adec37963, type: 3}
   - {fileID: 8300000, guid: 36162d86da03f47498eec0490e54c264, type: 3}
   _killClip: {fileID: 8300000, guid: ee1329f167a95f74383291dfb4f32a97, type: 3}
-  patrolSpeed: 2
+  patrolSpeed: 0
   chargeSpeed: 8
   detectionRange: 5
   chargeCooldown: 2
