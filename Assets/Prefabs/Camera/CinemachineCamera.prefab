@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4049894538967405815}
   - component: {fileID: 3307692664288439297}
   - component: {fileID: 1284134605542757055}
+  - component: {fileID: 7659630109598420950}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -27,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8318250828743865421}
   serializedVersion: 2
-  m_LocalRotation: {x: 2.9103828e-10, y: -0.0039062854, z: -0.000000104308114, w: 0.9999924}
+  m_LocalRotation: {x: 0, y: -0.003909469, z: 0, w: 0.9999924}
   m_LocalPosition: {x: -8.751874, y: 0.96000004, z: -9.999695}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0.448, z: 0}
 --- !u!114 &4049894538967405815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,7 +102,7 @@ MonoBehaviour:
       Size: {x: 1, y: 2}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
-  TargetOffset: {x: 0.3, y: 0, z: 0}
+  TargetOffset: {x: 0.3, y: -1.05, z: 0}
   Damping: {x: 1, y: 1, z: 1}
   Lookahead:
     Enabled: 1
@@ -131,3 +132,23 @@ MonoBehaviour:
     FrequencyGain: 1
     Duration: 1
     m_NoiseOffsets: {x: 813.781, y: 473.35028, z: 564.12335}
+--- !u!114 &7659630109598420950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8318250828743865421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoundingShape2D: {fileID: 0}
+  Damping: 1.24
+  SlowingDistance: 5
+  OversizeWindow:
+    Enabled: 1
+    MaxWindowSize: 8
+    Padding: 12.7
+  m_LegacyMaxWindowSize: -2

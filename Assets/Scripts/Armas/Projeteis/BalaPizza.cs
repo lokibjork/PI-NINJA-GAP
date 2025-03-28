@@ -39,7 +39,7 @@ public class BalaPizza : Projectile
                 if(damageHandler != null)
                 {
                     Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
-                    damageHandler.TakeDamage(1, knockbackDir, 2f);
+                    damageHandler.TakeDamage(1, knockbackDir, 10f);
                     hasDamagedPlayer = true;
                 }
                 // Opcional: você pode decidir se o projétil deve ser destruído ou continuar

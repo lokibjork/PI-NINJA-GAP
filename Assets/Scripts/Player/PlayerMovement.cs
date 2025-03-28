@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movimentação")]
-    public float moveSpeed = 5f;
-    public float jumpForce = 10f;
-    public float jumpHoldForce = 2f;
-    public float jumpTime = 0.2f;
-    public float dashSpeed = 15f;
-    public float airControl = 0.8f;
+    public float maxSpeed = 128f;
+    public float acceleration = 1024f;
+    public float deceleration = 1024f;
+    public float jumpForce = 192f;
+    public float gravity = 512f;
+    public float maxFallSpeed = 512f;
 
     [Header("Verificação de Solo")]
     public Transform groundCheck;
@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
     public float bufferedJumpTime = 0.2f;
 
     private Rigidbody2D rb;
-    private Weapon _weapon;
     public bool isGrounded;
     private float jumpTimeCounter;
     private float coyoteTimeCounter;
@@ -49,28 +48,28 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDashing) return;
 
-        // Input de movimento com controle no ar
         moveInput = Input.GetAxisRaw("Horizontal");
-        float currentSpeed = isGrounded ? moveSpeed : moveSpeed * airControl;
-        rb.linearVelocity = new Vector2(moveInput * currentSpeed, rb.linearVelocity.y);
+        float targetVelocityX = moveInput * maxSpeed;
+        float velocityChange = targetVelocityX - rb.linearVelocity.x;
+        float accelerationRate = Mathf.Abs(targetVelocityX) > 0.1f ? acceleration : deceleration;
+        rb.linearVelocity += new Vector2(Mathf.Clamp(velocityChange, -accelerationRate * Time.deltaTime, accelerationRate * Time.deltaTime), 0);
 
-        // Coyote Time
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y - gravity * Time.deltaTime, -maxFallSpeed));
+
         if (isGrounded)
             coyoteTimeCounter = coyoteTime;
         else
             coyoteTimeCounter -= Time.deltaTime;
 
-        // Buffered Jump
         if (Input.GetButtonDown("Jump"))
             bufferedJumpCounter = bufferedJumpTime;
         else
             bufferedJumpCounter -= Time.deltaTime;
 
-        // Pulo dinâmico
         if (bufferedJumpCounter > 0 && coyoteTimeCounter > 0)
         {
             isJumping = true;
-            jumpTimeCounter = jumpTime;
+            jumpTimeCounter = 0.2f;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             bufferedJumpCounter = 0;
             dust.Play();
@@ -81,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (jumpTimeCounter > 0)
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce + jumpHoldForce);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
             }
             else
@@ -96,13 +95,11 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
         }
 
-        // Dash
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash());
         }
 
-        // Flip instantâneo
         if (moveInput > 0)
             transform.localScale = new Vector3(1, 1, 1);
         else if (moveInput < 0)
@@ -121,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
-        rb.linearVelocity = new Vector2(transform.localScale.x * dashSpeed, 0f);
+        rb.linearVelocity = new Vector2(transform.localScale.x * maxSpeed * 2, 0f);
         yield return new WaitForSeconds(0.3f);
         rb.gravityScale = originalGravity;
         isDashing = false;

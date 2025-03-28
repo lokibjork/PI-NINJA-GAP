@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     public int maxHealth = 2;
-    protected int currentHealth;
+    public int currentHealth;
     public float knockbackForce = 5f;
     public float flashTime = 0.1f;
     private SpriteRenderer spriteRenderer;

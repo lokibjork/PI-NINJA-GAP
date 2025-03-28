@@ -20,7 +20,7 @@ public class MenuTween : MonoBehaviour
         SettingsOut();
     }
 
-    private void MainMenuIn()
+    public void MainMenuIn()
     {
         AnimateMenu(NewGameButton, new Vector3(-696, -121, 0), 0.5f);
         AnimateMenu(ContinueButton, new Vector3(-696, -201, 0), 1f);
@@ -28,7 +28,7 @@ public class MenuTween : MonoBehaviour
         AnimateMenu(QuitButton, new Vector3(-696, -361, 0), 2f);
     }
 
-    private void MainMenuOut()
+    public void MainMenuOut()
     {
         AnimateMenu(NewGameButton, new Vector3(-1500, -121, 0), 0.5f);
         AnimateMenu(ContinueButton, new Vector3(-1500, -201, 0), 1f);
@@ -36,7 +36,7 @@ public class MenuTween : MonoBehaviour
         AnimateMenu(QuitButton, new Vector3(-1500, -361, 0), 2f);
     }
 
-    private void SettingsIn()
+    public void SettingsIn()
     {
         AnimateMenu(SettingsPanel, Vector3.zero, 3f);
         AnimateMenu(SettingsGamePadButton, new Vector3(0, 80, 0), 2f);
@@ -44,7 +44,7 @@ public class MenuTween : MonoBehaviour
         AnimateMenu(SettingsBackButton, new Vector3(0, -80, 0), 1f);
     }
 
-    private void SettingsOut()
+    public void SettingsOut()
     {
         AnimateMenu(SettingsPanel, new Vector3(0, -1500, 0), 3f);
         AnimateMenu(SettingsGamePadButton, new Vector3(0, -1500, 0), 2f);
@@ -52,7 +52,7 @@ public class MenuTween : MonoBehaviour
         AnimateMenu(SettingsBackButton, new Vector3(0, -1500, 0), 1f);
     }
 
-    private void AnimateMenu(GameObject obj, Vector3 position, float time)
+    public void AnimateMenu(GameObject obj, Vector3 position, float time)
     {
         if (obj)
             LeanTween.moveLocal(obj, position, time).setEase(LeanTweenType.easeOutElastic);

@@ -1,18 +1,24 @@
 using System.Collections;
 using UnityEngine;
 
-public class BossFabricante : EnemyBase
+public class BossMinerador : EnemyBase
 {
     [Header("Boss Settings")]
     public Animator animator;
     public Transform shockwaveSpawnPoint;
     public GameObject shockwavePrefab;
     public GameObject pickaxePrefab;
+    public GameObject player;
+    public float offset;
 
     [Header("Attack Settings")]
-    public float jumpCooldown = 3f;
-    public float pickaxeCooldown = 5f;
+    public float jumpCooldown = 5f;
+    public float pickaxeCooldown = 8f;
     public float phaseTwoMultiplier = 1.5f;
+
+    [Header("Surround Settings")]
+    public float surroundRadius = 3f; // Distância fixa ao redor do jogador
+    public float surroundSpeed = 50f; // Velocidade de rotação
 
     private bool isPhaseTwo = false;
 
@@ -20,6 +26,11 @@ public class BossFabricante : EnemyBase
     {
         base.Start();
         StartCoroutine(BossBehavior());
+    }
+
+    private void Update()
+    {
+        SurroundPlayer();
     }
 
     private IEnumerator BossBehavior()
@@ -49,14 +60,14 @@ public class BossFabricante : EnemyBase
     {
         animator.SetTrigger("Pular");
         yield return new WaitForSeconds(1f);
-        Instantiate(shockwavePrefab, shockwaveSpawnPoint.position, Quaternion.identity);
+        Debug.Log("Pulando");
     }
 
     private IEnumerator ThrowPickaxe()
     {
         animator.SetTrigger("AtaquePicareta");
         yield return new WaitForSeconds(0.5f);
-        Instantiate(pickaxePrefab, transform.position, Quaternion.identity);
+        Debug.Log("Jogando a Picareta");
     }
 
     public new void TakeDamage(int damage, Vector2 knockbackDirection)
@@ -68,5 +79,14 @@ public class BossFabricante : EnemyBase
             isPhaseTwo = true;
             animator.SetTrigger("PhaseTwo");
         }
+    }
+
+    private void SurroundPlayer()
+    {
+        float angle = Time.time * surroundSpeed;
+        float x = Mathf.Cos(angle) * surroundRadius;
+        float z = Mathf.Sin(angle) * surroundRadius;
+
+        transform.position = player.transform.position + new Vector3(x, 0, z);
     }
 }
