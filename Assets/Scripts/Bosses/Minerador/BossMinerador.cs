@@ -1,92 +1,88 @@
-using System.Collections;
 using UnityEngine;
 
 public class BossMinerador : EnemyBase
 {
-    [Header("Boss Settings")]
-    public Animator animator;
-    public Transform shockwaveSpawnPoint;
-    public GameObject shockwavePrefab;
-    public GameObject pickaxePrefab;
-    public GameObject player;
-    public float offset;
+    [Header("Configuraï¿½ï¿½es")]
+    public float walkSpeed = 2f;
+    public float jumpForce = 50f;
+    public int groundPoundDamage = 2;
+    public float boomerangSpeed = 8f;
+    public GameObject boomerangPrefab;
+    public Transform throwPoint;
 
-    [Header("Attack Settings")]
-    public float jumpCooldown = 5f;
-    public float pickaxeCooldown = 8f;
-    public float phaseTwoMultiplier = 1.5f;
+    [Header("Fase 2")]
+    public bool isPhase2 = false;
+    public float phase2BoomerangSpeed = 12f;
+    public float phase2JumpRate = 1.5f;
 
-    [Header("Surround Settings")]
-    public float surroundRadius = 3f; // Distância fixa ao redor do jogador
-    public float surroundSpeed = 50f; // Velocidade de rotação
+    private Animator anim;
+    public Transform player;
+    private bool isGrounded = true;
 
-    private bool isPhaseTwo = false;
-
-    protected override void Start()
+    void Update()
     {
-        base.Start();
-        StartCoroutine(BossBehavior());
-    }
-
-    private void Update()
-    {
-        SurroundPlayer();
-    }
-
-    private IEnumerator BossBehavior()
-    {
-        while (true)
+        if (isGrounded && !isPhase2)
         {
-            if (!isPhaseTwo)
-            {
-                yield return StartCoroutine(PerformJumpAttack());
-                yield return new WaitForSeconds(jumpCooldown);
+            // Movimento bï¿½sico em direï¿½ï¿½o ao player (mas mantï¿½m distï¿½ncia)  
+            float direction = player.position.x > transform.position.x ? 1 : -1;
+            rb.linearVelocity = new Vector2(direction * walkSpeed, rb.linearVelocity.y);
+        }
 
-                yield return StartCoroutine(ThrowPickaxe());
-                yield return new WaitForSeconds(pickaxeCooldown);
-            }
-            else // Segunda fase mais intensa
-            {
-                yield return StartCoroutine(PerformJumpAttack());
-                yield return new WaitForSeconds(jumpCooldown / phaseTwoMultiplier);
+        // Ativa Fase 2 quando vida <= 50%  
+        if (maxHealth <= 50)
+        {
+            EnterPhase2();
+        }
+    }
 
-                yield return StartCoroutine(ThrowPickaxe());
-                yield return new WaitForSeconds(pickaxeCooldown / phaseTwoMultiplier);
+    void JumpAttack()
+    {
+        if (isGrounded)
+        {
+            isGrounded = false;
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+            // LanÃ§a a picareta APÃ“S o pulo (usar Invoke para timing)  
+            Invoke("ThrowBoomerang", 0.5f);
+        }
+    }
+
+    void ThrowBoomerang()
+    {
+        GameObject boomerang = Instantiate(boomerangPrefab, throwPoint.position, Quaternion.identity);
+        PicaretaBoomerang boomerangScript = boomerang.GetComponent<PicaretaBoomerang>();
+        boomerangScript.speed = isPhase2 ? phase2BoomerangSpeed : boomerangSpeed;
+        boomerangScript.direction = (player.position - throwPoint.position).normalized;
+        boomerangScript.isPhase2 = isPhase2; // Passa o estado da fase  
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+            // Causa dano se o player estiver perto do impacto  
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 2f);
+            foreach (var hit in hits)
+            {
+                if (hit.CompareTag("Player"))
+                {
+                    hit.GetComponent<DamageHandler>().TakeDamage(groundPoundDamage, transform.position, 4f);
+                    if (isPhase2)
+                    {
+                        // Adiciona onda de choque na Fase 2  
+                        hit.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 5f, ForceMode2D.Impulse);
+                    }
+                }
             }
         }
     }
 
-    private IEnumerator PerformJumpAttack()
+    void EnterPhase2()
     {
-        animator.SetTrigger("Pular");
-        yield return new WaitForSeconds(1f);
-        Debug.Log("Pulando");
-    }
-
-    private IEnumerator ThrowPickaxe()
-    {
-        animator.SetTrigger("AtaquePicareta");
-        yield return new WaitForSeconds(0.5f);
-        Debug.Log("Jogando a Picareta");
-    }
-
-    public new void TakeDamage(int damage, Vector2 knockbackDirection)
-    {
-        base.TakeDamage(damage, knockbackDirection);
-
-        if (currentHealth <= maxHealth / 2 && !isPhaseTwo)
-        {
-            isPhaseTwo = true;
-            animator.SetTrigger("PhaseTwo");
-        }
-    }
-
-    private void SurroundPlayer()
-    {
-        float angle = Time.time * surroundSpeed;
-        float x = Mathf.Cos(angle) * surroundRadius;
-        float z = Mathf.Sin(angle) * surroundRadius;
-
-        transform.position = player.transform.position + new Vector3(x, 0, z);
+        isPhase2 = true;
+        anim.SetBool("Phase2", true);
+        CancelInvoke("JumpAttack");
+        InvokeRepeating("JumpAttack", 1f, phase2JumpRate); // Pula mais rï¿½pido  
     }
 }

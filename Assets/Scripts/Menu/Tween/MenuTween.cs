@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuTween : MonoBehaviour
 {
@@ -56,5 +57,10 @@ public class MenuTween : MonoBehaviour
     {
         if (obj)
             LeanTween.moveLocal(obj, position, time).setEase(LeanTweenType.easeOutElastic);
+    }
+
+    public void NewGame()
+    {
+        SceneManager.LoadScene("Mina - 1");
     }
 }

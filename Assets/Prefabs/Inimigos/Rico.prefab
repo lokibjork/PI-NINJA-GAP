@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
+  currentHealth: 0
   knockbackForce: 10
   flashTime: 0.1
   _hitClip:
@@ -115,7 +116,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b9da60808e9466b458daf59adec37963, type: 3}
   - {fileID: 8300000, guid: 36162d86da03f47498eec0490e54c264, type: 3}
   _killClip: {fileID: 8300000, guid: ee1329f167a95f74383291dfb4f32a97, type: 3}
-  attackCooldown: 1
+  attackCooldown: 2.1
   detectionRange: 6
   projectilePrefab: {fileID: 6972602283425788897, guid: 34690c3fd09938b4aaeb4460bb4daafd, type: 3}
   firePoint: {fileID: 425842053463063587}

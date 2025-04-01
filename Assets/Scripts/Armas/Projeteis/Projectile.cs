@@ -33,27 +33,22 @@ public class Projectile : MonoBehaviour
     {
         if (isBoomerang)
         {
-            elapsedTime += Time.deltaTime;
-            float t = elapsedTime / journeyTime;
-
             if (!returning)
             {
-                transform.position = Vector3.Lerp(startPosition, startPosition + startDirection * returnDistance, t);
+                // Move-se para frente até atingir returnDistance
+                transform.position += startDirection * (speed * Time.deltaTime);
 
-                if (t >= 1f)
+                // Verifica se atingiu a distância máxima
+                if (Vector3.Distance(startPosition, transform.position) >= returnDistance)
                 {
                     returning = true;
-                    elapsedTime = 0f;
+                    startDirection = -startDirection; // Inverte a direção!
                 }
             }
             else
             {
-                transform.position = Vector3.Lerp(startPosition + startDirection * returnDistance, startPosition, t);
-
-                if (t >= 1f)
-                {
-                    Destroy(gameObject);
-                }
+                // Continua movendo na direção invertida
+                transform.position += startDirection * (speed * Time.deltaTime);
             }
         }
         else if (isBouncing)

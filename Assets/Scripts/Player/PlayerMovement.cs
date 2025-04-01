@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -35,13 +36,19 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem _jump;
     public ParticleSystem _fall;
 
+
+    [Header("Audio")]
     [SerializeField] public AudioClip _jumpClip;
     [SerializeField] public AudioClip _fallClip;
     [SerializeField] public AudioClip _runClip;
 
+    [Header("Animator")]
+    private Animator anim;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -82,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
+                anim.SetBool("IsJumping", !isGrounded);
             }
             else
             {
@@ -110,6 +118,9 @@ public class PlayerMovement : MonoBehaviour
             dust.Play();
             isFacingRight = moveInput > 0;
         }
+
+        anim.SetFloat("xVelocity", Math.Abs(rb.linearVelocity.x));
+        anim.SetFloat("yVelocity", rb.linearVelocity.y);
     }
 
     private IEnumerator Dash()
@@ -133,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
             SoundManagerSO.PlaySoundFXClip(_fallClip, transform.position, 1f);
             isGrounded = true;
             _fall.Play();
+            anim.SetBool("IsJumping", !isGrounded);
         }
     }
 
