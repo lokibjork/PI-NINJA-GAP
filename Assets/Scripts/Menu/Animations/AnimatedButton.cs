@@ -9,7 +9,6 @@ public class AnimatedButton : MonoBehaviour, ISelectHandler, IDeselectHandler
 
     private void Start()
     {
-        // Salvar o tamanho inicial do botão
         originalScale = transform.localScale;
     }
 
@@ -17,7 +16,6 @@ public class AnimatedButton : MonoBehaviour, ISelectHandler, IDeselectHandler
     {
         if (hoverSound != null) hoverSound.Play();
         
-        // Animação de pulsar quando selecionado
         activeTween = LeanTween.scale(gameObject, originalScale * 1.1f, 0.5f)
             .setEase(LeanTweenType.easeInOutSine)
             .setLoopPingPong();

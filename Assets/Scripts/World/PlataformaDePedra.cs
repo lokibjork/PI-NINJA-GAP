@@ -4,8 +4,8 @@ using UnityEngine;
 public class BreakablePlatform : MonoBehaviour
 {
     [Header("Configurações da Plataforma")]
-    public float breakDelay = 1.5f; // Tempo que o jogador precisa ficar parado na plataforma antes dela quebrar
-    public float respawnTime = 3f; // Tempo para a plataforma reaparecer
+    public float breakDelay = 1f; // Tempo que o jogador precisa ficar parado na plataforma antes dela quebrar
+    public float respawnTime = 1f; // Tempo para a plataforma reaparecer
 
     private SpriteRenderer spriteRenderer;
     private Collider2D platformCollider;

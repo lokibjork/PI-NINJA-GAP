@@ -235,8 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f12579729cfdf340a4000dc66a1e97d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
-  knockbackForce: 10
+  maxHealth: 8
+  currentHealth: 0
+  knockbackForce: 5
   flashTime: 0.1
   _hitClip:
   - {fileID: 8300000, guid: 141f1bb85e6d38a459a23372862861ee, type: 3}

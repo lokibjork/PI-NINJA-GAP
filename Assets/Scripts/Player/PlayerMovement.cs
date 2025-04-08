@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
     public bool isDashing;
 
     public ParticleSystem dust;
-    public ParticleSystem _jump;
     public ParticleSystem _fall;
 
 
@@ -99,7 +98,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonUp("Jump"))
         {
-            _jump.Play();
             isJumping = false;
         }
 
