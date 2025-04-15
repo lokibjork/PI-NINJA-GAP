@@ -1,5 +1,6 @@
 using UnityEngine;
 using Player;
+using Unity.VisualScripting;
 public class BalaPistola : Projectile
 {
     void Awake()
@@ -27,5 +28,10 @@ public class BalaPistola : Projectile
                 Destroy(gameObject); // Destroi o projétil após o impacto
             }
         }
+
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Ground"))
+        {
+                Destroy(gameObject);
+            }
     }
 }

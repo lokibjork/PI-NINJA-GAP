@@ -72,8 +72,8 @@ public class DamageHandler : MonoBehaviour
         Debug.Log("Recuperei " + amount + " de vida. Vida atual: " + playerData.currentHealth);
     }
     
-    void Die()
+    public void Die()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
