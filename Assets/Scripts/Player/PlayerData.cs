@@ -16,6 +16,14 @@ namespace Player
         {
             currentHealth = maxHealth;
             healthBar.SetMaxHealth(maxHealth);
+
+            if (PlayerPrefs.HasKey("CheckpointX") && PlayerPrefs.HasKey("CheckpointY"))
+            {
+                float x = PlayerPrefs.GetFloat("CheckpointX");
+                float y = PlayerPrefs.GetFloat("CheckpointY");
+                transform.position = new Vector2(x, y);
+                Debug.Log("Player voltou pro checkpoint salvo");
+            }
         }
     }
 }

@@ -101,10 +101,11 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        /*if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash());
         }
+        */
 
         if (moveInput > 0)
             transform.localScale = new Vector3(1, 1, 1);

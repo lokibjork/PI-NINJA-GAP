@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5667496437290794833}
   - component: {fileID: 3393367723093300086}
   - component: {fileID: 4308224040334339530}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PlataformaDePedra
   m_TagString: Ground
   m_Icon: {fileID: 0}

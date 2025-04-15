@@ -3,52 +3,56 @@ using Player;
 
 public class Drone : EnemyBase
 {
-    public float moveSpeed = 3f;        // Velocidade de movimentação
-    public float hoverHeight = 2f;      // Altura ideal para voar acima do player
-    public float circleRadius = 1.5f;   // Raio do círculo ao redor do player
-    public float circleSpeed = 2f;      // Velocidade da rotação em torno do player
-    public int damage = 1;              // Dano ao encostar no player
+    public float moveSpeed = 3f;
+    public float hoverHeight = 2f;
+    public float circleRadius = 1.5f;
+    public float circleSpeed = 2f;
+    public int damage = 1;
 
     private Transform player;
-    private float angle = 0f;           // Ângulo para circular o player
+    private float angle = 0f;
+    private bool playerDetected = false; // 👈 Novo: começa falso
 
     new void Start()
     {
         base.Start();
-        maxHealth = 4; // Bastante vida
+        maxHealth = 4;
         currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
-        if (player == null) return;
+        if (!playerDetected || player == null) return;
 
-        // Aumenta o ângulo para fazer o drone girar
         angle += circleSpeed * Time.deltaTime;
 
-        // Calcula a posição alvo com base no ângulo e na posição do player
         Vector2 targetPosition = new Vector2(
             player.position.x + Mathf.Cos(angle) * circleRadius,
-            player.position.y + hoverHeight + Mathf.Sin(angle) * (circleRadius / 2) // Pequena variação na altura
+            player.position.y + hoverHeight + Mathf.Sin(angle) * (circleRadius / 2)
         );
 
-        // Move o drone para a posição alvo
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
         rb.linearVelocity = direction * moveSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject obj = collision.gameObject;
-        
-        if (obj.CompareTag("Player"))
+        if (!playerDetected && collision.gameObject.tag == "Player")
+        {
+            playerDetected = true; // 👈 Começa a seguir o player
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
         {
             DamageHandler damageHandler = collision.gameObject.GetComponent<DamageHandler>();
-            if(damageHandler != null)
+            if (damageHandler != null)
             {
-                Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
-                damageHandler.TakeDamage(damage, knockbackDir, 100f);
+                Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
+                damageHandler.TakeDamage(1, knockbackDirection, 10f);
             }
         }
     }

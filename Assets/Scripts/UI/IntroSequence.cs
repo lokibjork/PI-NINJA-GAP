@@ -27,16 +27,11 @@ public class IntroSequence : MonoBehaviour
     void Start()
     {
         // Descomente se quiser ignorar a cutscene depois de vista
-        /*
         if (PlayerPrefs.GetInt("IntroSeen", 0) == 1)
         {
             gameObject.SetActive(false);
             return;
         }
-        */
-
-        // Apenas pra resetar durante testes
-        PlayerPrefs.DeleteKey("IntroSeen");
 
         promptCanvasGroup = promptButton.GetComponent<CanvasGroup>();
         promptRect = promptButton.GetComponent<RectTransform>();

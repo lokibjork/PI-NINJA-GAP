@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PauseMenuManager : MonoBehaviour
     
     [Header("Desativar features para pausar")]
     [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private PlayerShooting _playerShooting;
+    [SerializeField] private PlayerWeaponControl _playerWeaponControl;
     
     [Header("Primeira seleção ao entrar no menu")]
     [SerializeField] private GameObject _mainMenuFirst;
@@ -43,6 +46,8 @@ public class PauseMenuManager : MonoBehaviour
         Time.timeScale = 0;
         
         _playerMovement.enabled = false;
+        _playerShooting.enabled = false;
+        _playerWeaponControl.enabled = false;
 
         OpenMainMenu();
     }
@@ -53,9 +58,13 @@ public class PauseMenuManager : MonoBehaviour
         Time.timeScale = 1;
         
         _playerMovement.enabled = true;
+        _playerShooting.enabled = true;
+        _playerWeaponControl.enabled = true;
 
         CloseAllMenus();
     }
+
+
     
 
     #region Canvas Activations/Deactivations
@@ -109,4 +118,10 @@ public class PauseMenuManager : MonoBehaviour
     }
 
     #endregion
+
+    public void BackMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Menu");
+    }
 }
