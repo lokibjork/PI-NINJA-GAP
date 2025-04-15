@@ -122,6 +122,7 @@ public class PauseMenuManager : MonoBehaviour
     public void BackMenu()
     {
         Time.timeScale = 1;
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("Menu");
     }
 }

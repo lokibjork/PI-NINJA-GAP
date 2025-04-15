@@ -25,5 +25,11 @@ namespace Player
                 Debug.Log("Player voltou pro checkpoint salvo");
             }
         }
+
+        private void OnApplicationQuit()
+        {
+            PlayerPrefs.DeleteAll();
+            Debug.Log("PlayerPrefs deletados ao fechar o jogo.");
+        }
     }
 }

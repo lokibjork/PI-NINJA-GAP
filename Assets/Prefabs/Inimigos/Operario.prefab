@@ -211,7 +211,7 @@ MonoBehaviour:
   _killClip: {fileID: 8300000, guid: ee1329f167a95f74383291dfb4f32a97, type: 3}
   patrolSpeed: 0
   chargeSpeed: 8
-  detectionRange: 5
+  detectionRange: 6
   chargeCooldown: 2
   chargeTime: 1
   damage: 1
