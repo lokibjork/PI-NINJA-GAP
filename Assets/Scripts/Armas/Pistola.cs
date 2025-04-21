@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal; // Namespace para Spot Light 2D
 
 
 public class Pistola : Weapon
@@ -18,6 +19,11 @@ public class Pistola : Weapon
 
     [Header("Recuo do Disparo")]
     public float recuoForca = 2f; // Força do recuo ao disparar
+
+    [Header("Efeito de Luz do Disparo")]
+    public Light2D flashLight; // Referência à Spot Light 2D
+    public float flashIntensity = 50f; // Intensidade máxima do flash
+    public float flashDuration = 0.1f; // Duração do flash
 
     private void Start()
     {
@@ -45,6 +51,14 @@ public class Pistola : Weapon
         {
             Debug.LogWarning("EjetarCapsula não atribuído na " + weaponName + ". A ejeção de cápsulas não funcionará.");
         }
+        if (flashLight == null)
+        {
+            Debug.LogWarning("Spot Light 2D não atribuída na " + weaponName + ". O efeito de luz não funcionará.");
+        }
+        else
+        {
+            flashLight.intensity = 0f; // Garante que a luz comece desligada
+        }
     }
 
     public override void Shoot()
@@ -68,6 +82,12 @@ public class Pistola : Weapon
 
             // Instancia o efeito de fumaça
             SpawnSmokeEffect();
+
+            // Ativa o efeito de luz
+            if (flashLight != null)
+            {
+                StartCoroutine(FlashLightEffect());
+            }
 
             // Aplica o recuo ao jogador
             if (playerRb != null)
@@ -93,5 +113,12 @@ public class Pistola : Weapon
         {
             anim.SetTrigger("isShooting");
         }
+    }
+
+    private System.Collections.IEnumerator FlashLightEffect()
+    {
+        flashLight.intensity = flashIntensity;
+        yield return new WaitForSeconds(flashDuration);
+        flashLight.intensity = 0f;
     }
 }
