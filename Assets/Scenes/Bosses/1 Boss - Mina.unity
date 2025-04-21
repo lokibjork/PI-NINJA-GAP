@@ -822,7 +822,7 @@ GameObject:
   - component: {fileID: 1132202846}
   - component: {fileID: 1132202845}
   - component: {fileID: 1132202847}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -959,7 +959,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1309263207}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShockWaveSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1027,7 +1027,10 @@ GameObject:
   - component: {fileID: 1827034654}
   - component: {fileID: 1827034655}
   - component: {fileID: 1827034656}
-  m_Layer: 0
+  - component: {fileID: 1827034657}
+  - component: {fileID: 1827034659}
+  - component: {fileID: 1827034658}
+  m_Layer: 7
   m_Name: Minerador
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1167,7 +1170,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.50000006
+  m_Radius: 0.5
 --- !u!95 &1827034654
 Animator:
   serializedVersion: 7
@@ -1206,10 +1209,14 @@ MonoBehaviour:
   currentHealth: 0
   knockbackForce: 0
   flashTime: 0.1
+  timeStopDuration: 0.05
+  shakeIntensity: 0.1
+  shakeDuration: 0.1
   _hitClip:
   - {fileID: 8300000, guid: 141f1bb85e6d38a459a23372862861ee, type: 3}
   - {fileID: 8300000, guid: 1fe013d4521ea894cad0809fa34b7eef, type: 3}
   _killClip: {fileID: 8300000, guid: ee1329f167a95f74383291dfb4f32a97, type: 3}
+  flashMaterial: {fileID: 2100000, guid: eb13d8e807c160f4a9c5839674660d34, type: 2}
   walkSpeed: 2
   jumpForce: 10
   groundPoundDamage: 2
@@ -1266,6 +1273,77 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.5651908, y: 0.2174049}
   m_EdgeRadius: 0
+--- !u!58 &1827034657
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827034649}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.50000006
+--- !u!114 &1827034658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827034649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c11265b855408d42af33d62691f5194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChannelMask: 1
+  Gain: 1
+  Use2DDistance: 0
+  UseLocalSpace: 1
+  ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!114 &1827034659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827034649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec0ddcd27f7ca541b695f91e3e2b773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeForce: 1
 --- !u!1001 &1827999698
 PrefabInstance:
   m_ObjectHideFlags: 0

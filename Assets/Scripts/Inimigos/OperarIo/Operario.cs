@@ -14,6 +14,7 @@ public class Operario : EnemyBase
     public int damage = 1;
     public float patrolPointReachedThreshold = 0.1f; // Distância para considerar o ponto alcançado
     public float idleTimeAtPatrolPoint = 1f; // Tempo de espera em cada ponto
+    public float knockbackForces;
 
     private Transform player;
     private Transform operarioTransform;
@@ -119,8 +120,11 @@ public class Operario : EnemyBase
             DamageHandler damageHandler = collision.gameObject.GetComponent<DamageHandler>();
             if (damageHandler != null)
             {
-                Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
-                damageHandler.TakeDamage(damage, knockbackDirection, 10f);
+                // Obtém a normal do primeiro ponto de contato
+                Vector2 normalDaColisao = collision.GetContact(0).normal;
+                // A direção do knockback deve ser oposta a essa normal (apontando para fora do inimigo)
+                Vector2 knockbackDirection = -normalDaColisao.normalized;
+                damageHandler.TakeDamage(1, knockbackDirection, knockbackForces);
             }
         }
     }

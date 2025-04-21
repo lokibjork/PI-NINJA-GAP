@@ -122,20 +122,6 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("yVelocity", rb.linearVelocity.y);
     }
 
-    private IEnumerator Dash()
-    {
-        canDash = false;
-        isDashing = true;
-        float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0f;
-        rb.linearVelocity = new Vector2(transform.localScale.x * maxSpeed * 2, 0f);
-        yield return new WaitForSeconds(0.3f);
-        rb.gravityScale = originalGravity;
-        isDashing = false;
-        yield return new WaitForSeconds(1f); // Cooldown do dash
-        canDash = true;
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Ground"))

@@ -24,7 +24,7 @@ public class BalaPistola : Projectile
                 // Calcula a direção do knockback baseado na posição do tiro e do inimigo
                 Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
 
-                enemy.TakeDamage(damage, knockbackDir);
+                enemy.TakeDamage(damage, -knockbackDir);
                 Destroy(gameObject); // Destroi o projétil após o impacto
             }
         }

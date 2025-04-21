@@ -131,15 +131,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91e77200c14b4ae2bec24efc4d25c438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  speed: 50
   damage: 1
   lifetime: 2
   isBouncing: 0
   isBoomerang: 0
   isRocket: 0
-  maxBounces: 6
+  maxBounces: 0
   returning: 0
-  returnDistance: 10
+  returnDistance: 0
 --- !u!96 &6946213519236734707
 TrailRenderer:
   serializedVersion: 3

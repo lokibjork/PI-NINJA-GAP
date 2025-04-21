@@ -10,6 +10,9 @@ public class DamageHandler : MonoBehaviour
     public Rigidbody2D rb;
     public SpriteRenderer spriteRenderer;
     public AudioClip _playerHit;
+    public ScreenShaker screenShaker;
+    public float shakeIntensity = 0.1f;
+    public float shakeDuration = 0.1f;
 
     void Start()
     {
@@ -22,6 +25,8 @@ public class DamageHandler : MonoBehaviour
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
+
+        screenShaker = GetComponent<ScreenShaker>();
     }
 
     public void TakeDamage(int damage, Vector2 knockbackDirection, float knockbackForce)
@@ -35,6 +40,11 @@ public class DamageHandler : MonoBehaviour
         // Aplica o knockback
         rb.linearVelocity = Vector2.zero; // 🔄 Corrige problemas com velocidade acumulada
         rb.AddForce(knockbackDirection.normalized * knockbackForce, ForceMode2D.Impulse);
+
+        if (screenShaker != null)
+        {
+            screenShaker.Shake(-knockbackDirection.normalized * shakeIntensity);
+        }
 
         StartCoroutine(InvulnerabilityCoroutine());
 
