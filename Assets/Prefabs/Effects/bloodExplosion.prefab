@@ -3812,7 +3812,7 @@ ParticleSystem:
     primitives: []
   SubModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     subEmitters: []
   LightsModule:
     enabled: 0
