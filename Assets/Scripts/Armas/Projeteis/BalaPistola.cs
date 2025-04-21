@@ -29,7 +29,7 @@ public class BalaPistola : Projectile
             }
         }
 
-        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Enemy"))
         {
                 Destroy(gameObject);
             }

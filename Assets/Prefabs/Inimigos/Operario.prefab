@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6240502839401807370}
   - component: {fileID: 5527997534913586769}
   - component: {fileID: 123312981698467195}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Operario
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -33,8 +33,8 @@ Transform:
   m_GameObject: {fileID: 6702358519431017051}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.49, y: -3.31, z: 0}
-  m_LocalScale: {x: 1.4419, y: 1.4419, z: 1.4419}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,12 +83,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1419619972923838527, guid: 4322f564bb575164fbd60edcf5158641, type: 3}
+  m_Sprite: {fileID: 6186966944735090691, guid: 3c652b7ab81b7884b975b1dccb292659, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -203,18 +203,25 @@ MonoBehaviour:
   currentHealth: 0
   knockbackForce: 5
   flashTime: 0.1
+  timeStopDuration: 0.05
+  shakeIntensity: 0.1
+  shakeDuration: 0.1
   _hitClip:
   - {fileID: 8300000, guid: 141f1bb85e6d38a459a23372862861ee, type: 3}
   - {fileID: 8300000, guid: 1fe013d4521ea894cad0809fa34b7eef, type: 3}
   - {fileID: 8300000, guid: b9da60808e9466b458daf59adec37963, type: 3}
   - {fileID: 8300000, guid: 36162d86da03f47498eec0490e54c264, type: 3}
   _killClip: {fileID: 8300000, guid: ee1329f167a95f74383291dfb4f32a97, type: 3}
+  flashMaterial: {fileID: 2100000, guid: eb13d8e807c160f4a9c5839674660d34, type: 2}
   patrolSpeed: 0
+  patrolPoints: []
   chargeSpeed: 8
   detectionRange: 6
   chargeCooldown: 2
   chargeTime: 1
   damage: 1
+  patrolPointReachedThreshold: 0.1
+  idleTimeAtPatrolPoint: 1
 --- !u!95 &6240502839401807370
 Animator:
   serializedVersion: 7
@@ -271,17 +278,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.18968868}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1.625, y: 1.4375}
+    newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7, y: 0.7}
+  m_Size: {x: 0.7, y: 1.0793774}
   m_EdgeRadius: 0
 --- !u!61 &123312981698467195
 BoxCollider2D:
@@ -317,15 +324,15 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.18968868}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1.625, y: 1.4375}
+    newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7, y: 0.7}
+  m_Size: {x: 0.7, y: 1.0793774}
   m_EdgeRadius: 0

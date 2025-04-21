@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 05a6cd91b0dd4fe46bea3d85abe5d773
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -938179004969241903
+    second: gozeiw_0
+  - first:
+      213: 6937038159229852126
+    second: gozeiw_1
+  - first:
+      213: -1039545679112539692
+    second: gozeiw_2
+  - first:
+      213: 5009837727378344182
+    second: gozeiw_3
+  - first:
+      213: -4933205176538396024
+    second: gozeiw_4
+  - first:
+      213: -1753074388716848908
+    second: gozeiw_5
+  - first:
+      213: -3416492429903704504
+    second: gozeiw_6
+  - first:
+      213: 8264280049576344402
+    second: gozeiw_7
+  - first:
+      213: -5517810025559649964
+    second: gozeiw_8
+  - first:
+      213: -6063936897812122791
+    second: gozeiw_9
+  - first:
+      213: -1425523588535977162
+    second: gozeiw_10
+  - first:
+      213: -8539207859146191430
+    second: gozeiw_11
+  - first:
+      213: 5303015757818787328
+    second: gozeiw_12
+  - first:
+      213: 3137632900660016844
+    second: gozeiw_13
+  - first:
+      213: -6163697333677014960
+    second: gozeiw_14
+  - first:
+      213: 3854883348247532633
+    second: gozeiw_15
+  - first:
+      213: -7558166398189408000
+    second: gozeiw_16
+  - first:
+      213: 6211906259299419645
+    second: gozeiw_17
+  - first:
+      213: -1347368353072271423
+    second: gozeiw_18
+  - first:
+      213: 8680907197059681112
+    second: gozeiw_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gozeiw_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 44
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d234196a2beaf2f0800000000000000
+      internalID: -938179004969241903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 45
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed9993aa37f454060800000000000000
+      internalID: 6937038159229852126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_2
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 23
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d174bc66bac291f0800000000000000
+      internalID: -1039545679112539692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_3
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 44
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f88cbaaed4868540800000000000000
+      internalID: 5009837727378344182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_4
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 45
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88a8f48770cb98bb0800000000000000
+      internalID: -4933205176538396024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_5
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 23
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f872b3b124dba7e0800000000000000
+      internalID: -1753074388716848908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_6
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 22
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84e47c18c3e2690d0800000000000000
+      internalID: -3416492429903704504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_7
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 28
+        width: 14
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25b78574bee90b270800000000000000
+      internalID: 8264280049576344402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_8
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 20
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4519d60340dcc63b0800000000000000
+      internalID: -5517810025559649964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_9
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 29
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9533681058198dba0800000000000000
+      internalID: -6063936897812122791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_10
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 20
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63b7f5659d5873ce0800000000000000
+      internalID: -1425523588535977162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_11
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 22
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abd0e5cd1b3ae7980800000000000000
+      internalID: -8539207859146191430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_12
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 27
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00676133cb8189940800000000000000
+      internalID: 5303015757818787328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_13
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 20
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc63b6fcf7c1b8b20800000000000000
+      internalID: 3137632900660016844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_14
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 30
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 050c8238ee5267aa0800000000000000
+      internalID: -6163697333677014960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_15
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 21
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 954dcde2bfb4f7530800000000000000
+      internalID: 3854883348247532633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_16
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 4
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00170aaa4bffb1790800000000000000
+      internalID: -7558166398189408000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_17
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 5
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df5419ba4df153650800000000000000
+      internalID: 6211906259299419645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_18
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 4
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cf268d1f9f2d4de0800000000000000
+      internalID: -1347368353072271423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gozeiw_19
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 5
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85bcfd03a17c87870800000000000000
+      internalID: 8680907197059681112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 53e41ad4cb00b67469f2bef43f6fb1ed
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      gozeiw_0: -938179004969241903
+      gozeiw_1: 6937038159229852126
+      gozeiw_10: -1425523588535977162
+      gozeiw_11: -8539207859146191430
+      gozeiw_12: 5303015757818787328
+      gozeiw_13: 3137632900660016844
+      gozeiw_14: -6163697333677014960
+      gozeiw_15: 3854883348247532633
+      gozeiw_16: -7558166398189408000
+      gozeiw_17: 6211906259299419645
+      gozeiw_18: -1347368353072271423
+      gozeiw_19: 8680907197059681112
+      gozeiw_2: -1039545679112539692
+      gozeiw_3: 5009837727378344182
+      gozeiw_4: -4933205176538396024
+      gozeiw_5: -1753074388716848908
+      gozeiw_6: -3416492429903704504
+      gozeiw_7: 8264280049576344402
+      gozeiw_8: -5517810025559649964
+      gozeiw_9: -6063936897812122791
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

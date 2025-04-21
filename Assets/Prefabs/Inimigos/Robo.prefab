@@ -151,9 +151,8 @@ GameObject:
   - component: {fileID: 6847923053592275504}
   - component: {fileID: 6315384672420715802}
   - component: {fileID: 3002400674025674350}
-  - component: {fileID: 5942010336094017367}
   - component: {fileID: 8212558579437238415}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Robo
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -347,7 +346,7 @@ MonoBehaviour:
     DissipationMode: 2
     DissipationDistance: 100
     PropagationSpeed: 343
-  DefaultVelocity: {x: 0, y: 0.5, z: 0}
+  DefaultVelocity: {x: 0, y: 0.3, z: 0}
 --- !u!114 &6315384672420715802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,6 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  currentHealth: 0
   knockbackForce: 0.5
   flashTime: 0.1
   _hitClip:
@@ -386,42 +386,6 @@ MonoBehaviour:
   jumpForce: 5
   detectionRange: 5
   attackCooldown: 2
---- !u!58 &5942010336094017367
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9016449261402594697}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
 --- !u!95 &8212558579437238415
 Animator:
   serializedVersion: 7

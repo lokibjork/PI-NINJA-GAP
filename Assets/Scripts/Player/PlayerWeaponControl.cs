@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerWeaponControl : MonoBehaviour
 {
     public Transform WeaponTransform;
-    private Vector2 aimDirection = Vector2.right;
+    public Vector2 aimDirection = Vector2.right;
     public PlayerMovement _playerMovement;
 
     void Update()
@@ -34,12 +34,12 @@ public class PlayerWeaponControl : MonoBehaviour
     {
         if (direction == Vector2.up)
         {
-            WeaponTransform.localPosition = new Vector3(0, 1, 0);
+            WeaponTransform.localPosition = new Vector3(1, 1.5f, 0);
             WeaponTransform.localRotation = Quaternion.Euler(0, 0, 90);
         }
         else if (direction == Vector2.down && !_playerMovement.isGrounded)
         {
-            WeaponTransform.localPosition = new Vector3(0, -1, 0);
+            WeaponTransform.localPosition = new Vector3(-0.5f, -0.5f, 0);
             WeaponTransform.localRotation = Quaternion.Euler(0, 0, -90);
         }
         else if (direction == Vector2.right)

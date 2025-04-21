@@ -60,7 +60,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 6.89
+    OrthographicSize: 5.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -145,10 +145,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoundingShape2D: {fileID: 0}
-  Damping: 1.24
-  SlowingDistance: 5
+  Damping: 3
+  SlowingDistance: 12.98
   OversizeWindow:
     Enabled: 1
-    MaxWindowSize: 8
-    Padding: 12.7
+    MaxWindowSize: 10
+    Padding: 84.2
   m_LegacyMaxWindowSize: -2

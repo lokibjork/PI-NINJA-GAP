@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 6221496846739781396}
   - component: {fileID: 7644079556587140638}
   - component: {fileID: 5146402649155743293}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mercenario
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
+  currentHealth: 0
   knockbackForce: 5
   flashTime: 0.1
   _hitClip:

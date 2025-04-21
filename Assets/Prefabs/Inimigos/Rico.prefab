@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1051168189111178073}
   - component: {fileID: 6416994609985521348}
   - component: {fileID: 8237389040511009614}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rico
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -83,12 +83,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 956103901, guid: 7ca21cc5b81d3c441ac0827bf4bcb471, type: 3}
+  m_Sprite: {fileID: -6470121831592487436, guid: 3c652b7ab81b7884b975b1dccb292659, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5625, y: 1.375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -110,12 +110,16 @@ MonoBehaviour:
   currentHealth: 0
   knockbackForce: 10
   flashTime: 0.1
+  timeStopDuration: 0.05
+  shakeIntensity: 0.1
+  shakeDuration: 0.1
   _hitClip:
   - {fileID: 8300000, guid: 141f1bb85e6d38a459a23372862861ee, type: 3}
   - {fileID: 8300000, guid: 1fe013d4521ea894cad0809fa34b7eef, type: 3}
   - {fileID: 8300000, guid: b9da60808e9466b458daf59adec37963, type: 3}
   - {fileID: 8300000, guid: 36162d86da03f47498eec0490e54c264, type: 3}
   _killClip: {fileID: 8300000, guid: ee1329f167a95f74383291dfb4f32a97, type: 3}
+  flashMaterial: {fileID: 0}
   attackCooldown: 2.1
   detectionRange: 6
   projectilePrefab: {fileID: 6972602283425788897, guid: 34690c3fd09938b4aaeb4460bb4daafd, type: 3}

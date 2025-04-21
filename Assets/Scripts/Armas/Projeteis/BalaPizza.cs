@@ -32,25 +32,16 @@ public class BalaPizza : Projectile
                 }
             }
 
-            // Se o projétil estiver retornando e atingir o jogador, aplica dano
-            if (collision.gameObject.CompareTag("Player") && returning && !hasDamagedPlayer)
-            {
-                DamageHandler damageHandler = collision.gameObject.GetComponent<DamageHandler>();
-                if(damageHandler != null)
-                {
-                    Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
-                    damageHandler.TakeDamage(1, knockbackDir, 10f);
-                    hasDamagedPlayer = true;
-                }
-                // Opcional: você pode decidir se o projétil deve ser destruído ou continuar
-                return;
-            }
-
             // Para outras colisões, opcionalmente você pode refletir ou ignorar
             // Se não for boomerang ou bouncing, destrói o projétil (por precaução)
             if (!isBouncing && !isBoomerang && !isRocket)
             {
                 Destroy(gameObject);
             }
+
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
         }
+    }
     }

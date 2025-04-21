@@ -8,7 +8,7 @@ public class SceneTransition : MonoBehaviour
 
     void Update()
     {
-        if (canEnter && Input.GetAxisRaw("Vertical") > 0)
+        if (canEnter && Input.GetAxisRaw("Vertical") < 0)
         {
             SceneManager.LoadScene(nextSceneName);
         }
