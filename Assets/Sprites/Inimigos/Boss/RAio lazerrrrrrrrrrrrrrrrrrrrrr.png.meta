@@ -1,0 +1,465 @@
+fileFormatVersion: 2
+guid: ebc9bd13c4f911f4f859319f7e21d26d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9008647489077688928
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_0
+  - first:
+      213: -1984907450813055768
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_1
+  - first:
+      213: -6145851192777934217
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_2
+  - first:
+      213: 486799051652371976
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_3
+  - first:
+      213: -3609077705973527025
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_4
+  - first:
+      213: 6410227889724214608
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_5
+  - first:
+      213: 2125616621330634128
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_6
+  - first:
+      213: 6016514277578932004
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_7
+  - first:
+      213: 4550830835365683230
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_8
+  - first:
+      213: 5106306206215371403
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_9
+  - first:
+      213: -4596656077031177315
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_10
+  - first:
+      213: -1916172398892889021
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_11
+  - first:
+      213: -6062020096538292641
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_12
+  - first:
+      213: 8738169142813071371
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_13
+  - first:
+      213: 1217774767115958107
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_14
+  - first:
+      213: 1697516612423462042
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_15
+  - first:
+      213: -5067439540680805142
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_16
+  - first:
+      213: -62083676385705649
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_17
+  - first:
+      213: -5009330519020391731
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_18
+  - first:
+      213: -1745665060516515851
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_19
+  - first:
+      213: 5227402664405493610
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_20
+  - first:
+      213: -4683446340078320048
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_21
+  - first:
+      213: 1549375530988175643
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_22
+  - first:
+      213: -7004455012816993901
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_23
+  - first:
+      213: -8515539902067483731
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_24
+  - first:
+      213: -5072339931176623788
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_25
+  - first:
+      213: -1211948852563005051
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_26
+  - first:
+      213: -5455115755290966116
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_27
+  - first:
+      213: 1420892978778180172
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_28
+  - first:
+      213: 214550214728152984
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_29
+  - first:
+      213: 3946205059501541216
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_30
+  - first:
+      213: -9098508002332414730
+    second: RAio lazerrrrrrrrrrrrrrrrrrrrrr_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RAio lazerrrrrrrrrrrrrrrrrrrrrr_0
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 165
+        width: 122
+        height: 148
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06ab0355925250d70800000000000000
+      internalID: 9008647489077688928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RAio lazerrrrrrrrrrrrrrrrrrrrrr_1
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 166
+        width: 140
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ecf242a0313474e0800000000000000
+      internalID: -1984907450813055768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RAio lazerrrrrrrrrrrrrrrrrrrrrr_2
+      rect:
+        serializedVersion: 2
+        x: 2604
+        y: 167
+        width: 129
+        height: 149
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77a7f0cf6ec85baa0800000000000000
+      internalID: -6145851192777934217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RAio lazerrrrrrrrrrrrrrrrrrrrrr_3
+      rect:
+        serializedVersion: 2
+        x: 3704
+        y: 168
+        width: 139
+        height: 149
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8069cb6882571c600800000000000000
+      internalID: 486799051652371976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RAio lazerrrrrrrrrrrrrrrrrrrrrr_4
+      rect:
+        serializedVersion: 2
+        x: 4815
+        y: 167
+        width: 122
+        height: 148
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0e8aa8b2faf9edc0800000000000000
+      internalID: -3609077705973527025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RAio lazerrrrrrrrrrrrrrrrrrrrrr_5
+      rect:
+        serializedVersion: 2
+        x: 5915
+        y: 167
+        width: 135
+        height: 165
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05d40588d44b5f850800000000000000
+      internalID: 6410227889724214608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RAio lazerrrrrrrrrrrrrrrrrrrrrr_6
+      rect:
+        serializedVersion: 2
+        x: 7028
+        y: 168
+        width: 119
+        height: 145
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 095141b1e05bf7d10800000000000000
+      internalID: 2125616621330634128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RAio lazerrrrrrrrrrrrrrrrrrrrrr_7
+      rect:
+        serializedVersion: 2
+        x: 8134
+        y: 169
+        width: 114
+        height: 161
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42f782dcbd3fe7350800000000000000
+      internalID: 6016514277578932004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RAio lazerrrrrrrrrrrrrrrrrrrrrr_10
+      rect:
+        serializedVersion: 2
+        x: 9247
+        y: 162
+        width: 97
+        height: 135
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d938aede6a56530c0800000000000000
+      internalID: -4596656077031177315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RAio lazerrrrrrrrrrrrrrrrrrrrrr_14
+      rect:
+        serializedVersion: 2
+        x: 10355
+        y: 165
+        width: 94
+        height: 134
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b57716ad2b766e010800000000000000
+      internalID: 1217774767115958107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4456829bc62c8da4396707e02ef9674c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_0: 9008647489077688928
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_1: -1984907450813055768
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_10: -4596656077031177315
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_11: -1916172398892889021
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_12: -6062020096538292641
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_13: 8738169142813071371
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_14: 1217774767115958107
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_15: 1697516612423462042
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_16: -5067439540680805142
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_17: -62083676385705649
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_18: -5009330519020391731
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_19: -1745665060516515851
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_2: -6145851192777934217
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_20: 5227402664405493610
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_21: -4683446340078320048
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_22: 1549375530988175643
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_23: -7004455012816993901
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_24: -8515539902067483731
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_25: -5072339931176623788
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_26: -1211948852563005051
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_27: -5455115755290966116
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_28: 1420892978778180172
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_29: 214550214728152984
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_3: 486799051652371976
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_30: 3946205059501541216
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_31: -9098508002332414730
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_4: -3609077705973527025
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_5: 6410227889724214608
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_6: 2125616621330634128
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_7: 6016514277578932004
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_8: 4550830835365683230
+      RAio lazerrrrrrrrrrrrrrrrrrrrrr_9: 5106306206215371403
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Bala
   - Plataforma
+  - Boss
   layers:
   - Default
   - TransparentFX
