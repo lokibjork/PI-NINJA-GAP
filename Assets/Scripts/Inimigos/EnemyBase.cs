@@ -7,7 +7,6 @@ public class EnemyBase : MonoBehaviour
     public int currentHealth;
     public float knockbackForce = 5f;
     public float flashTime = 0.1f;
-    public float timeStopDuration = 0.05f;
     public float shakeIntensity = 0.1f;
     public float shakeDuration = 0.1f;
     [SerializeField] public AudioClip[] _hitClip;
@@ -26,7 +25,7 @@ public class EnemyBase : MonoBehaviour
 
         if (screenShaker == null)
         {
-            Debug.LogError("ScreenShaker n�o encontrado na cena!");
+            Debug.LogError("ScreenShaker não encontrado na cena!");
         }
     }
 
@@ -41,7 +40,7 @@ public class EnemyBase : MonoBehaviour
         }
         else
         {
-            Debug.LogError("SpriteRenderer n�o encontrado no inimigo!");
+            Debug.LogError("SpriteRenderer não encontrado no inimigo!");
         }
     }
 
@@ -54,7 +53,7 @@ public class EnemyBase : MonoBehaviour
         rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
         SoundManagerSO.PlaySoundFXClips(_hitClip, transform.position, 1);
 
-        // Feedback de dano
+        // Feedback de dano (flash e shake)
         StartCoroutine(DamageFeedback());
 
         if (currentHealth <= 0)
@@ -65,11 +64,6 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual IEnumerator DamageFeedback()
     {
-        // Time Stop
-        Time.timeScale = 0f;
-        yield return new WaitForSecondsRealtime(timeStopDuration);
-        Time.timeScale = 1f;
-
         // Flash Branco (usando shader)
         if (spriteRenderer != null && flashMaterial != null)
         {
@@ -81,7 +75,7 @@ public class EnemyBase : MonoBehaviour
         }
         else
         {
-            // Fallback para o m�todo antigo, caso o shader n�o esteja configurado
+            // Fallback para o método antigo, caso o shader não esteja configurado
             StartCoroutine(FlashWhiteFallback());
         }
 
@@ -96,9 +90,9 @@ public class EnemyBase : MonoBehaviour
     {
         if (spriteRenderer != null)
         {
-            spriteRenderer.color = Color.white;
+            spriteRenderer.color = Color.red;
             yield return new WaitForSeconds(flashTime);
-            spriteRenderer.color = Color.red; // Ou a cor original do inimigo
+            spriteRenderer.color = Color.white; ; // Ou a cor original do inimigo
         }
         yield return null;
     }

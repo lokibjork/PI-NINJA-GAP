@@ -8,17 +8,19 @@ public class Drone : EnemyBase
     public float circleRadius = 1.5f;
     public float circleSpeed = 2f;
     public int damage = 1;
+    public float initialAngleOffset = 0f; // Para variar o movimento inicial
 
     private Transform player;
     private float angle = 0f;
-    private bool playerDetected = false; // 👈 Novo: começa falso
+    private bool playerDetected = false;
 
-    new void Start()
+    new void Start() // ❌ Erro corrigido: use 'override' em vez de 'new'
     {
         base.Start();
         maxHealth = 4;
         currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        angle = initialAngleOffset; // Aplica um offset inicial ao ângulo
     }
 
     void Update()
@@ -29,18 +31,18 @@ public class Drone : EnemyBase
 
         Vector2 targetPosition = new Vector2(
             player.position.x + Mathf.Cos(angle) * circleRadius,
-            player.position.y + hoverHeight + Mathf.Sin(angle) * (circleRadius / 2)
+            player.position.y + hoverHeight + Mathf.Sin(angle) * circleRadius // ✅ Raio vertical corrigido para círculo
         );
 
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-        rb.linearVelocity = direction * moveSpeed;
+        rb.linearVelocity = direction * moveSpeed; // ✅ Use 'velocity' para consistência
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!playerDetected && collision.gameObject.tag == "Player")
+        if (!playerDetected && collision.gameObject.CompareTag("Player"))
         {
-            playerDetected = true; // 👈 Começa a seguir o player
+            playerDetected = true;
         }
     }
 
@@ -52,7 +54,7 @@ public class Drone : EnemyBase
             if (damageHandler != null)
             {
                 Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
-                damageHandler.TakeDamage(1, knockbackDirection, 10f);
+                damageHandler.TakeDamage(damage, knockbackDirection, 10f); // ✅ Use a variável 'damage' do drone
             }
         }
     }

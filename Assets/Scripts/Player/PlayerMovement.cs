@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float coyoteTime = 0.2f;
     public float bufferedJumpTime = 0.2f;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public bool isGrounded;
     private float jumpTimeCounter;
     private float coyoteTimeCounter;

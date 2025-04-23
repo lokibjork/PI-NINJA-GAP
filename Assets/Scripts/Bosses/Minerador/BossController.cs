@@ -33,6 +33,9 @@ public class BossController : MonoBehaviour
     private int lasersSpawnedThisBurst = 0;
     private float laserAttackStartTime;
     private bool isLaserAttacking = false;
+    public float laserAttackShakeIntensity = 0.08f; // Intensidade do shake durante o laser
+    public float laserAttackShakeDuration = 8f; // Duração total do período de shake em segundos
+    private float laserAttackShakeEndTime; // Tempo em que o shake deve parar
 
     [Header("Pontos de Spawn de Laser")]
     public Transform laserSpawnPoint1;
@@ -46,12 +49,14 @@ public class BossController : MonoBehaviour
     [Header("Invulnerabilidade do Laser")]
     [SerializeField] public float invulnerabilityDuration = 4f; // Deve corresponder à duração do laser
     [SerializeField] private float invulnerabilityTimer = 0f;
-    [SerializeField] private bool isVulnerable = true;
+    [SerializeField] public bool isVulnerable = true;
 
     [Header("Iluminação")]
     public Light2D arenaLight; // Referência à luz global da arena
     public float dimLightIntensity = 0.1f;
     public float normalLightIntensity = 1f; // Inicialize aqui ou no Inspector
+
+    private ScreenShaker screenShaker; // Referência ao ScreenShaker
 
     void Start()
     {
@@ -64,6 +69,13 @@ public class BossController : MonoBehaviour
         // Inicializa a lista de pontos de spawn de laser
         if (laserSpawnPoint1 != null) laserSpawnPoints.Add(laserSpawnPoint1);
         if (laserSpawnPoint2 != null) laserSpawnPoints.Add(laserSpawnPoint2);
+
+        // Busca o ScreenShaker na cena
+        screenShaker = FindObjectOfType<ScreenShaker>();
+        if (screenShaker == null)
+        {
+            Debug.LogWarning("ScreenShaker não encontrado na cena para o Boss!");
+        }
     }
 
     void Update()
@@ -103,6 +115,7 @@ public class BossController : MonoBehaviour
                     currentLaserSpawnIndex = 0; // Reseta o índice de spawn do laser
                     isVulnerable = false;
                     invulnerabilityTimer = invulnerabilityDuration;
+                    laserAttackShakeEndTime = Time.time + laserAttackShakeDuration; // Define o tempo de fim do shake
                 }
                 break;
             case BossState.Idle:
@@ -169,18 +182,23 @@ public class BossController : MonoBehaviour
 
     void HandleLaserAttack()
     {
-        if (currentState == BossState.LaserAttack && Time.time >= nextLaserSpawnTime && lasersSpawnedThisBurst < laserBurstCount && Time.time < laserAttackStartTime + laserAttackDuration && laserSpawnPoints.Count > 0)
+        if (currentState == BossState.LaserAttack && Time.time >= nextLaserSpawnTime && lasersSpawnedThisBurst < laserBurstCount && Time.time < laserAttackStartTime + laserAttackDuration && laserSpawnPoints.Count > 0 && Time.time < laserAttackShakeEndTime)
         {
             Transform spawnPoint = laserSpawnPoints[currentLaserSpawnIndex % laserSpawnPoints.Count];
             Quaternion laserRotation = spawnPoint.rotation;
 
-            // Se for o segundo ponto de spawn (índice 1), aplica a rotação invertida
             if (currentLaserSpawnIndex % laserSpawnPoints.Count == 1)
             {
                 laserRotation *= Quaternion.Euler(invertedLaserRotation);
             }
 
             SpawnLaser(spawnPoint, laserRotation);
+
+            if (screenShaker != null)
+            {
+                screenShaker.Shake(Vector2.up * laserAttackShakeIntensity);
+            }
+
             currentLaserSpawnIndex++;
             nextLaserSpawnTime = Time.time + laserSpawnInterval;
             lasersSpawnedThisBurst++;
@@ -191,7 +209,7 @@ public class BossController : MonoBehaviour
     void SpawnMissile(Transform spawnPoint)
     {
         if (homingMissilePrefab != null && spawnPoint != null)
-        {
+        { 
             Instantiate(homingMissilePrefab, spawnPoint.position, spawnPoint.rotation);
         }
     }
@@ -201,26 +219,21 @@ public class BossController : MonoBehaviour
         if (animatedLaserPrefab != null && spawnPoint != null)
         {
             Instantiate(animatedLaserPrefab, spawnPoint.position, rotation);
+
+            Destroy(animatedLaserPrefab, 2f);
         }
     }
 
     public void TakeDamage(int damage)
     {
-        if (isVulnerable)
-        {
-            Debug.Log("Chefe recebeu " + damage + " de dano!");
-        }
-        else
-        {
-            Debug.Log("Chefe invulnerável!");
-        }
+        // A lógica de dano agora está no BossHealth script
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bala"))
         {
-
+            // A lógica de dano agora está no BossHealth script
         }
     }
 }

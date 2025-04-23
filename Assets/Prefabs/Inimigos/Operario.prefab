@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec0ddcd27f7ca541b695f91e3e2b773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeForce: 1
+  shakeForce: 4
 --- !u!114 &5341662399601642072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +203,6 @@ MonoBehaviour:
   currentHealth: 0
   knockbackForce: 5
   flashTime: 0.1
-  timeStopDuration: 0.05
   shakeIntensity: 0.1
   shakeDuration: 0.1
   _hitClip:
@@ -212,7 +211,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b9da60808e9466b458daf59adec37963, type: 3}
   - {fileID: 8300000, guid: 36162d86da03f47498eec0490e54c264, type: 3}
   _killClip: {fileID: 8300000, guid: ee1329f167a95f74383291dfb4f32a97, type: 3}
-  flashMaterial: {fileID: 2100000, guid: eb13d8e807c160f4a9c5839674660d34, type: 2}
+  flashMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   patrolSpeed: 0
   patrolPoints: []
   chargeSpeed: 8
@@ -222,6 +221,7 @@ MonoBehaviour:
   damage: 1
   patrolPointReachedThreshold: 0.1
   idleTimeAtPatrolPoint: 1
+  knockbackForces: 0
 --- !u!95 &6240502839401807370
 Animator:
   serializedVersion: 7

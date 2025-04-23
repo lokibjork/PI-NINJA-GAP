@@ -439,9 +439,13 @@ GameObject:
   - component: {fileID: 3626991329815981103}
   - component: {fileID: 1419513558489741233}
   - component: {fileID: 3497202183126486044}
+  - component: {fileID: 5904594991091019114}
   - component: {fileID: 4252455248824809951}
   - component: {fileID: 2392299996498200119}
   - component: {fileID: 1623616496920417083}
+  - component: {fileID: -3598081047735529221}
+  - component: {fileID: -5088263753611337468}
+  - component: {fileID: 737315311789399868}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -558,6 +562,9 @@ MonoBehaviour:
   rb: {fileID: 4252455248824809951}
   spriteRenderer: {fileID: 9215258429239323503}
   _playerHit: {fileID: 8300000, guid: a0a1cece1ea4dbe45b8397796a0b2525, type: 3}
+  screenShaker: {fileID: 737315311789399868}
+  shakeIntensity: 0.1
+  shakeDuration: 0.1
 --- !u!114 &5360591799605747559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,12 +581,13 @@ MonoBehaviour:
   acceleration: 896
   deceleration: 896
   jumpForce: 12
-  gravity: 10
+  gravity: 0
   maxFallSpeed: 450
   groundCheck: {fileID: 6899741330312276040}
   checkRadius: 0.57
   coyoteTime: 0.1
   bufferedJumpTime: 0.1
+  rb: {fileID: 0}
   isGrounded: 1
   isJumping: 0
   isFacingRight: 0
@@ -640,6 +648,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponManager: {fileID: 3626991329815981103}
+--- !u!114 &5904594991091019114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425172458305328079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10eacaac49fac24f98b52f7f9d5fa66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &4252455248824809951
 Rigidbody2D:
   serializedVersion: 5
@@ -652,7 +672,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 50
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 5
@@ -723,7 +743,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0.18629846, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -733,8 +753,87 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8752138, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-3598081047735529221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425172458305328079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec0ddcd27f7ca541b695f91e3e2b773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeForce: 1
+--- !u!114 &-5088263753611337468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425172458305328079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ImpulseDefinition:
+    ImpulseChannel: 1
+    ImpulseShape: 2
+    CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ImpulseDuration: 0.2
+    ImpulseType: 0
+    DissipationRate: 0.25
+    RawSignal: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    RepeatMode: 0
+    Randomize: 1
+    TimeEnvelope:
+      AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      AttackTime: 0
+      SustainTime: 0.2
+      DecayTime: 0.7
+      ScaleWithImpact: 1
+      HoldForever: 0
+    ImpactRadius: 100
+    DirectionMode: 0
+    DissipationMode: 2
+    DissipationDistance: 100
+    PropagationSpeed: 343
+  DefaultVelocity: {x: 0, y: -1, z: 0}
+--- !u!114 &737315311789399868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425172458305328079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec0ddcd27f7ca541b695f91e3e2b773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeForce: 1
 --- !u!1 &3840629028111712384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,7 +1099,7 @@ MonoBehaviour:
   smokeEffectPrefab: {fileID: 7253902149554035128, guid: c175c39a6c55c8549b6df6578e99f6fd, type: 3}
   smokePoint: {fileID: 3107417117427386559}
   pistolClip: {fileID: 8300000, guid: b2f1fd1d979d41c4ba8d4ef0776a9e73, type: 3}
-  impulsoParaCimaForca: 7.5
+  impulsoParaCimaForca: 280
   playerWeaponControl: {fileID: 1419513558489741233}
   playerRb: {fileID: 4252455248824809951}
   playerMovement: {fileID: 5360591799605747559}
@@ -1140,8 +1239,8 @@ Transform:
   m_GameObject: {fileID: 5479096984221134598}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.097, y: -0.172, z: 0}
-  m_LocalScale: {x: 0.50871056, y: 0.54995745, z: 0.54995745}
+  m_LocalPosition: {x: 0.18, y: 0.076, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5161043959786565411}
@@ -1181,7 +1280,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.14}
-  m_Radius: 0.45
+  m_Radius: 0.3
 --- !u!1 &5967163935366479934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,7 +1330,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.656
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.7
+  m_Intensity: 0.5
   m_LightVolumeIntensity: 0.03
   m_LightVolumeEnabled: 1
   m_ApplyToSortingLayers: 00000000
@@ -1470,11 +1569,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 629056949819911157, guid: 8f240424370ab87438e31d3f65dc2e98, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.292
+      value: 0.187
       objectReference: {fileID: 0}
     - target: {fileID: 629056949819911157, guid: 8f240424370ab87438e31d3f65dc2e98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.693
+      value: -0.002
       objectReference: {fileID: 0}
     - target: {fileID: 629056949819911157, guid: 8f240424370ab87438e31d3f65dc2e98, type: 3}
       propertyPath: m_LocalPosition.z

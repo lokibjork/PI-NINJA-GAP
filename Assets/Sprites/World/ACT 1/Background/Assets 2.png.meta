@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: edfae812c908fa641b585da07a0ad1cd
+guid: d2ea903fbeee9dc438c9d2701f721cfc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2251879231025388370
-    second: jump 1_0
+      213: -6232711045973908567
+    second: Assets 2_0
   - first:
-      213: 7433205329265719020
-    second: jump 1_1
+      213: -4781812791467157325
+    second: Assets 2_1
   - first:
-      213: -7794233420385945655
-    second: jump 1_2
-  - first:
-      213: -1767209262313429290
-    second: jump 1_3
-  - first:
-      213: 9221850289636628292
-    second: jump 1_4
-  - first:
-      213: -1486431447456399615
-    second: jump 1_5
+      213: 588950816136437770
+    second: Assets 2_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,45 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jump 1_2
+      name: Assets 2_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 12
-        width: 33
-        height: 19
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 122
+        y: 98
+        width: 209
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c7fa61fff155d390800000000000000
-      internalID: -7794233420385945655
+      spriteID: 9a362157356f089a0800000000000000
+      internalID: -6232711045973908567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump 1_0
+      name: Assets 2_1
       rect:
         serializedVersion: 2
-        x: 3
-        y: 37
-        width: 26
-        height: 19
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 341
+        y: 35
+        width: 234
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 53edbdc1fd6c1544d9a8c0d05510d1e9
-      internalID: 2251879231025388370
+      spriteID: 3b85e2ee99693adb0800000000000000
+      internalID: -4781812791467157325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets 2_2
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 225
+        width: 187
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a002df995af5c2800800000000000000
+      internalID: 588950816136437770
       vertices: []
       indices: 
       edges: []
@@ -162,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f06ff3ea84d423f459902871815491ad
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -172,12 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      jump 1_0: 2251879231025388370
-      jump 1_1: 7433205329265719020
-      jump 1_2: -7794233420385945655
-      jump 1_3: -1767209262313429290
-      jump 1_4: 9221850289636628292
-      jump 1_5: -1486431447456399615
+      Assets 2_0: -6232711045973908567
+      Assets 2_1: -4781812791467157325
+      Assets 2_2: 588950816136437770
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

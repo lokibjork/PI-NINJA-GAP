@@ -9,27 +9,29 @@ public class RicoEnemy : EnemyBase
     public float gunDistance = 0.5f;
     public Transform weaponObject;
 
-    public bool isfacingRight = true; // Vamos inicializar como true por padrão
+    public bool isFacingRight { get; private set; } = true; // Propriedade com getter privado
     private Transform player;
     private float cooldownTimer = 0f;
-    private SpriteRenderer enemySpriteRenderer; // Referência ao SpriteRenderer do inimigo
+    private SpriteRenderer enemySpriteRenderer;
 
     protected override void Start()
     {
         base.Start();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        enemySpriteRenderer = GetComponent<SpriteRenderer>(); // Obtém o SpriteRenderer do inimigo
+        enemySpriteRenderer = GetComponent<SpriteRenderer>();
         if (enemySpriteRenderer == null)
         {
-            Debug.LogError("SpriteRenderer não encontrado no inimigo Rico!");
+            Debug.LogError("SpriteRenderer nï¿½o encontrado no inimigo Rico!");
         }
+
+        // Detecta a direï¿½ï¿½o inicial baseada no scale
+        isFacingRight = transform.localScale.x > 0;
     }
 
     void Update()
     {
         WeaponRot();
-        FlipFunction();
-        FlipEnemySprite(); // Chama a função para flipar o sprite do inimigo
+        UpdateFacingDirection();
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
@@ -44,60 +46,62 @@ public class RicoEnemy : EnemyBase
         cooldownTimer -= Time.deltaTime;
     }
 
-    private void FlipFunction()
+    private void UpdateFacingDirection()
     {
-        if (player.position.x < weaponObject.position.x && isfacingRight)
+        if (player.position.x < transform.position.x && isFacingRight)
         {
-            FlipWeapon(weaponObject);
+            Flip();
         }
-        else if (player.position.x > weaponObject.position.x && !isfacingRight)
+        else if (player.position.x > transform.position.x && !isFacingRight)
         {
-            FlipWeapon(weaponObject);
+            Flip();
         }
     }
 
-    private void FlipEnemySprite()
+    private void Flip()
     {
-        // Flipa o sprite do inimigo baseado na direção do jogador
-        if (player.position.x < transform.position.x && isfacingRight)
-        {
-            FlipCharacter();
-        }
-        else if (player.position.x > transform.position.x && !isfacingRight)
-        {
-            FlipCharacter();
-        }
-    }
-
-    private void FlipCharacter()
-    {
-        isfacingRight = !isfacingRight;
+        isFacingRight = !isFacingRight;
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        if (weaponObject != null)
+        {
+            weaponObject.localScale = new Vector3(weaponObject.localScale.x, -weaponObject.localScale.y, weaponObject.localScale.z); // Flip vertical da arma (ajuste conforme necessï¿½rio)
+        }
     }
 
     private void WeaponRot()
     {
+        if (player == null || weaponObject == null) return; // Seguranï¿½a caso o jogador ou a arma nï¿½o sejam encontrados
+
         Vector3 playerPos = player.position;
         Vector3 direction = playerPos - transform.position;
-
-        weaponObject.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg));
-
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        weaponObject.position = transform.position + Quaternion.Euler(0, 0, angle) * new Vector3(gunDistance, 0, 0);
-    }
 
-    void FlipWeapon(Transform weapon)
-    {
-        isfacingRight = !isfacingRight;
-        weapon.localScale = new Vector3(weapon.localScale.x, weapon.localScale.y * -1, weapon.localScale.z);
+        weaponObject.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        weaponObject.position = transform.position + Quaternion.Euler(0, 0, angle) * new Vector3(gunDistance, 0, 0);
     }
 
     void AttackPlayer()
     {
         cooldownTimer = attackCooldown;
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-        Vector2 direction = (player.position - firePoint.position).normalized;
-        projectile.GetComponent<Rigidbody2D>().linearVelocity = direction * 15f;
-        Destroy(projectile, 1.5f); // Corrigido para destruir a instância do projétil
+        if (projectilePrefab != null && firePoint != null && player != null)
+        {
+            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+            Vector2 direction = (player.position - firePoint.position).normalized;
+            Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
+            if (projectileRb != null)
+            {
+                projectileRb.linearVelocity = direction * 15f; // Use velocity em vez de linearVelocity para consistï¿½ncia
+                Destroy(projectile, 1.5f);
+            }
+            else
+            {
+                Debug.LogError("Rigidbody2D nï¿½o encontrado no projï¿½til!");
+                Destroy(projectile); // Garante que o projï¿½til seja destruï¿½do mesmo sem Rigidbody
+            }
+        }
+        else
+        {
+            Debug.LogError("Prefab de projï¿½til, firePoint ou jogador nï¿½o referenciado!");
+        }
     }
 }
