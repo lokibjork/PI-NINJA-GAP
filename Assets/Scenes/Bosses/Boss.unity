@@ -1564,36 +1564,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5161043959786565411, guid: f2c30f48b52d12941b9c5852ecf0b9d0, type: 3}
   m_PrefabInstance: {fileID: 545914278}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &371365320 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4870510545265843115, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
-  m_PrefabInstance: {fileID: 1289327877}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &421271432 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7765845397501277168, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
-  m_PrefabInstance: {fileID: 1289327877}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &421271436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 421271432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 195936cde57d6b44caf7bd413240bb75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossHealth: {fileID: 547680608}
-  healthBarFill: {fileID: 371365320}
 --- !u!1 &442082387
 GameObject:
   m_ObjectHideFlags: 0
@@ -2888,34 +2858,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2742076479807900970, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
-      propertyPath: m_Value
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2742076479807900970, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
-      propertyPath: m_MaxValue
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2742076479807900970, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2742076479807900970, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2742076479807900970, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 421271432}
-    - target: {fileID: 2742076479807900970, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2742076479807900970, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 4324452777363954500, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2928,10 +2870,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBoss
       objectReference: {fileID: 0}
-    - target: {fileID: 7377122479189828968, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
+    - target: {fileID: 5407835288918104028, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
       propertyPath: bossHealth
       value: 
       objectReference: {fileID: 547680608}
+    - target: {fileID: 7948999289245665490, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8827455718125103032, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3015,10 +2961,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7765845397501277168, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 421271436}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ecac8a36c0e3741b38239baac84978, type: 3}
 --- !u!1 &1318792291
 GameObject:
