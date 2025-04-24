@@ -55,6 +55,9 @@ public class BossController : MonoBehaviour
     public Light2D arenaLight; // Referência à luz global da arena
     public float dimLightIntensity = 0.1f;
     public float normalLightIntensity = 1f; // Inicialize aqui ou no Inspector
+    public float lightBlinkIntensity = 0.5f; // Intensidade da luz durante a piscada
+    public float lightBlinkSpeed = 0.1f; // Duração de cada piscada em segundos
+    public int lightBlinkCount = 3; // Número de piscadas antes de apagar
 
     private ScreenShaker screenShaker; // Referência ao ScreenShaker
 
@@ -101,13 +104,14 @@ public class BossController : MonoBehaviour
                 isLaserAttacking = false; // Garante que a flag do laser seja resetada
                 lasersSpawnedThisBurst = 0;
                 currentLaserSpawnIndex = 0; // Reseta o índice de spawn do laser
+                StopCoroutine(BlinkLightsBeforeLaser()); // Garante que a corrotina de piscada seja interrompida se o estado mudar
                 break;
             case BossState.LaserAttack:
                 HandleLaserAttack();
-                // Diminui a luz ao iniciar o ataque laser
+                // Inicia a sequência de piscada e diminuição da luz ao iniciar o ataque laser
                 if (!isLaserAttacking && arenaLight != null)
                 {
-                    arenaLight.intensity = dimLightIntensity;
+                    StartCoroutine(BlinkLightsBeforeLaser());
                     isLaserAttacking = true;
                     laserAttackStartTime = Time.time;
                     nextLaserSpawnTime = Time.time + laserSpawnInterval;
@@ -120,6 +124,7 @@ public class BossController : MonoBehaviour
                 break;
             case BossState.Idle:
                 // Comportamento de descanso
+                StopCoroutine(BlinkLightsBeforeLaser()); // Garante que a corrotina de piscada seja interrompida se o estado mudar
                 break;
         }
 
@@ -209,7 +214,7 @@ public class BossController : MonoBehaviour
     void SpawnMissile(Transform spawnPoint)
     {
         if (homingMissilePrefab != null && spawnPoint != null)
-        { 
+        {
             Instantiate(homingMissilePrefab, spawnPoint.position, spawnPoint.rotation);
         }
     }
@@ -218,9 +223,8 @@ public class BossController : MonoBehaviour
     {
         if (animatedLaserPrefab != null && spawnPoint != null)
         {
-            Instantiate(animatedLaserPrefab, spawnPoint.position, rotation);
-
-            Destroy(animatedLaserPrefab, 2f);
+            GameObject laser = Instantiate(animatedLaserPrefab, spawnPoint.position, rotation);
+            Destroy(laser, 2f);
         }
     }
 
@@ -235,5 +239,22 @@ public class BossController : MonoBehaviour
         {
             // A lógica de dano agora está no BossHealth script
         }
+    }
+
+    IEnumerator BlinkLightsBeforeLaser()
+    {
+        if (arenaLight == null) yield break;
+
+        float originalIntensity = arenaLight.intensity;
+
+        for (int i = 0; i < lightBlinkCount; i++)
+        {
+            arenaLight.intensity = lightBlinkIntensity;
+            yield return new WaitForSeconds(lightBlinkSpeed);
+            arenaLight.intensity = originalIntensity;
+            yield return new WaitForSeconds(lightBlinkSpeed);
+        }
+
+        arenaLight.intensity = dimLightIntensity;
     }
 }

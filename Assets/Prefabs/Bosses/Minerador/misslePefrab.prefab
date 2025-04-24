@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4474515465056932291}
   m_Layer: 6
   m_Name: misslePefrab
-  m_TagString: Untagged
+  m_TagString: BalaBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

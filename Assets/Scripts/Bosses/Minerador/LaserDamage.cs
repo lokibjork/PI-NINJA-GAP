@@ -9,7 +9,8 @@ public class LaserDamage : MonoBehaviour
     public float laserShakeIntensity = 0.1f; // Intensidade do shake do laser
     private float timer = 0f;
     private Collider2D lastHitTarget = null;
-    private ScreenShaker laserScreenShaker; // Referência ao ScreenShaker local (se houver) ou global
+    private ScreenShaker laserScreenShaker;
+    public float destroyTime;// Referência ao ScreenShaker local (se houver) ou global
 
     void Start()
     {
@@ -24,6 +25,8 @@ public class LaserDamage : MonoBehaviour
                 Debug.LogWarning("ScreenShaker não encontrado na cena para o laser!");
             }
         }
+
+        Destroy(this.gameObject, destroyTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
