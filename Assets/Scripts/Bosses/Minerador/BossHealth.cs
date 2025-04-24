@@ -1,5 +1,6 @@
 using UnityEngine;
-using System; // Importante para usar o tipo Action para eventos
+using System;
+using UnityEngine.SceneManagement; // Importante para usar o tipo Action para eventos
 
 public class BossHealth : MonoBehaviour
 {
@@ -47,5 +48,6 @@ public class BossHealth : MonoBehaviour
         Debug.Log("Chefe derrotado!");
         // Adicione aqui a lógica para a derrota do chefe (animações, drops, etc.)
         Destroy(gameObject); // Por enquanto, apenas destrói o chefe
+        SceneManager.LoadScene("Fim playtest");
     }
 }

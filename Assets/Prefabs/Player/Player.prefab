@@ -767,7 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec0ddcd27f7ca541b695f91e3e2b773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeForce: 1
+  shakeForce: 3
 --- !u!114 &-5088263753611337468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,7 +782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpulseDefinition:
     ImpulseChannel: 1
-    ImpulseShape: 2
+    ImpulseShape: 3
     CustomImpulseShape:
       serializedVersion: 2
       m_Curve: []
@@ -1061,7 +1061,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -9
+  m_SortingOrder: 5
   m_Sprite: {fileID: 8264280049576344402, guid: 05a6cd91b0dd4fe46bea3d85abe5d773, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1502,11 +1502,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2274733939389426691, guid: b377321fa6bbfdc459d172db3a07b765, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.077
+      value: 0.181
       objectReference: {fileID: 0}
     - target: {fileID: 2274733939389426691, guid: b377321fa6bbfdc459d172db3a07b765, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.699
+      value: 0.012
       objectReference: {fileID: 0}
     - target: {fileID: 2274733939389426691, guid: b377321fa6bbfdc459d172db3a07b765, type: 3}
       propertyPath: m_LocalPosition.z

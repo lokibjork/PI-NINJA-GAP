@@ -11,11 +11,12 @@ TagManager:
   - Plataforma
   - Boss
   - BalaBoss
+  - Detect
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bala
   - Water
   - UI
   - Player

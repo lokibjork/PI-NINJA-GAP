@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6240502839401807370}
   - component: {fileID: 5527997534913586769}
   - component: {fileID: 123312981698467195}
+  - component: {fileID: -2381279489298429152}
   m_Layer: 7
   m_Name: Operario
   m_TagString: Enemy
@@ -336,3 +337,81 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7, y: 1.0793774}
   m_EdgeRadius: 0
+--- !u!114 &-2381279489298429152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702358519431017051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.5935113, y: -0.53556037, z: 0}
+  - {x: -0.65796465, y: -0.49374348, z: 0}
+  - {x: -0.75093067, y: -0.41077518, z: 0}
+  - {x: -0.7572966, y: -0.22767554, z: 0}
+  - {x: -0.6332834, y: -0.098386675, z: 0}
+  - {x: -0.50187147, y: -0.08222507, z: 0}
+  - {x: -0.511291, y: 0.058807373, z: 0}
+  - {x: -0.5051125, y: 0.32757127, z: 0}
+  - {x: -0.3815429, y: 0.5252827, z: 0}
+  - {x: -0.23790121, y: 0.66005445, z: 0}
+  - {x: 0.11946279, y: 0.65477735, z: 0}
+  - {x: 0.62789387, y: 0.33632886, z: 0}
+  - {x: 0.62753665, y: 0.2112123, z: 0}
+  - {x: 0.56877995, y: 0.21488461, z: 0}
+  - {x: 0.55409074, y: 0.16347247, z: 0}
+  - {x: 0.45493877, y: 0.13776642, z: 0}
+  - {x: 0.45126647, y: -0.031159192, z: 0}
+  - {x: 0.45071292, y: -0.08126131, z: 0}
+  - {x: 0.62625635, y: -0.07512994, z: 0}
+  - {x: 0.62625635, y: -0.14608137, z: 0}
+  - {x: 0.75751656, y: -0.20993768, z: 0}
+  - {x: 0.7610641, y: -0.397959, z: 0}
+  - {x: 0.7007554, y: -0.4192444, z: 0}
+  - {x: 0.62625635, y: -0.522124, z: 0}
+  - {x: 0.5091865, y: -0.5327667, z: 0}
+  - {x: 0.34954578, y: -0.472458, z: 0}
+  - {x: 0.251081, y: -0.39189652, z: 0}
+  - {x: -0.0040404797, y: -0.4108284, z: 0}
+  - {x: -0.3244929, y: -0.3908639, z: 0}
+  - {x: -0.3848016, y: -0.5363143, z: 0}
+  m_ShapePathHash: 655690523
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0.0018837452, y: 0.06187004, z: 0}
+      m_Extent: {x: 0.75918037, y: 0.59818435, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.37
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0.07
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.37
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 3185653340645536866}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

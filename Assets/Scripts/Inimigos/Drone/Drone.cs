@@ -8,19 +8,20 @@ public class Drone : EnemyBase
     public float circleRadius = 1.5f;
     public float circleSpeed = 2f;
     public int damage = 1;
-    public float initialAngleOffset = 0f; // Para variar o movimento inicial
+    public float initialAngleOffset = 0f;
 
     private Transform player;
     private float angle = 0f;
     private bool playerDetected = false;
 
-    new void Start() // ❌ Erro corrigido: use 'override' em vez de 'new'
+    override protected void Start()
     {
         base.Start();
         maxHealth = 4;
         currentHealth = maxHealth;
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        angle = initialAngleOffset; // Aplica um offset inicial ao ângulo
+        angle = initialAngleOffset;
     }
 
     void Update()
@@ -31,16 +32,17 @@ public class Drone : EnemyBase
 
         Vector2 targetPosition = new Vector2(
             player.position.x + Mathf.Cos(angle) * circleRadius,
-            player.position.y + hoverHeight + Mathf.Sin(angle) * circleRadius // ✅ Raio vertical corrigido para círculo
+            player.position.y + hoverHeight + Mathf.Sin(angle) * circleRadius
         );
 
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-        rb.linearVelocity = direction * moveSpeed; // ✅ Use 'velocity' para consistência
+        rb.linearVelocity = direction * moveSpeed;
     }
 
+    // Esse Trigger é o trigger separado (GameObject filho com tag "IgnoreBullet")
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!playerDetected && collision.gameObject.CompareTag("Player"))
+        if (!playerDetected && collision.CompareTag("Player"))
         {
             playerDetected = true;
         }
@@ -54,7 +56,7 @@ public class Drone : EnemyBase
             if (damageHandler != null)
             {
                 Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
-                damageHandler.TakeDamage(damage, knockbackDirection, 10f); // ✅ Use a variável 'damage' do drone
+                damageHandler.TakeDamage(damage, knockbackDirection, 10f);
             }
         }
     }

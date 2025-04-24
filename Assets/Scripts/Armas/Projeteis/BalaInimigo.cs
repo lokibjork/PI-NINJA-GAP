@@ -14,5 +14,10 @@ public class BalaInimigo : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Wall"))
+        {
+                Destroy(gameObject);
+            }
+        }
     }
-}
