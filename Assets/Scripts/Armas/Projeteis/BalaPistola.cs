@@ -6,7 +6,7 @@ public class BalaPistola : Projectile
     void Awake()
     {
         // Configurações para o projétil básico
-        speed = 15f;         // Velocidade média
+        speed = 35f;         // Velocidade média
         damage = 1;         // Dano pequeno
         lifetime = 2f;       // Alcance médio (tempo de vida)
         isBouncing = false;

@@ -16,7 +16,7 @@ public class Operario : EnemyBase
     public float idleTimeAtPatrolPoint = 1f; // Tempo de espera em cada ponto
     public float knockbackForces;
 
-    private Transform player;
+    private Transform playerTransform; // Renomeado para clareza
     private Transform operarioTransform;
     private bool isCharging = false;
     private bool canCharge = true;
@@ -29,17 +29,44 @@ public class Operario : EnemyBase
         base.Start();
         currentHealth = maxHealth;
         operarioTransform = gameObject.GetComponent<Transform>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        FindPlayer(); // Encontra o jogador no início
+    }
 
-        // Inicializa a posição se houver pontos de patrulha
-        if (patrolPoints != null && patrolPoints.Length > 0)
+    void OnEnable()
+    {
+        DamageHandler.OnPlayerDeath += HandlePlayerDeath;
+    }
+
+    void OnDisable()
+    {
+        DamageHandler.OnPlayerDeath -= HandlePlayerDeath;
+    }
+
+    void HandlePlayerDeath()
+    {
+        playerTransform = null;
+        Debug.Log("Operario: Jogador morreu, parando de rastrear.");
+        enabled = false; // Desativa o script do Operario quando o jogador morre
+    }
+
+    void FindPlayer()
+    {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
         {
-            transform.position = patrolPoints[0].position;
+            playerTransform = playerObject.transform;
+        }
+        else
+        {
+            Debug.LogError("Operario: Não conseguiu encontrar o GameObject do Jogador com a tag 'Player'.");
+            enabled = false; // Desativa se o jogador não for encontrado
         }
     }
 
     void Update()
     {
+        if (playerTransform == null) return; // Não faz nada se o jogador não existir
+
         if (!isCharging)
         {
             if (!isIdling)
@@ -85,7 +112,9 @@ public class Operario : EnemyBase
 
     void DetectPlayer()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        if (playerTransform == null) return; // Segurança extra
+
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
         if (distanceToPlayer <= detectionRange && canCharge && !isCharging)
         {
             StartCoroutine(ChargeAttack());
@@ -100,14 +129,17 @@ public class Operario : EnemyBase
         rb.linearVelocity = Vector2.zero;
         yield return new WaitForSeconds(0.5f);
 
-        float direction = Mathf.Sign(player.position.x - transform.position.x);
-        Flip(direction);
-        rb.linearVelocity = new Vector2(direction * chargeSpeed, rb.linearVelocity.y);
+        if (playerTransform != null) // Verifica antes de usar a posição do jogador
+        {
+            float direction = Mathf.Sign(playerTransform.position.x - transform.position.x);
+            Flip(direction);
+            rb.linearVelocity = new Vector2(direction * chargeSpeed, rb.linearVelocity.y);
 
-        yield return new WaitForSeconds(chargeTime);
+            yield return new WaitForSeconds(chargeTime);
 
-        rb.linearVelocity = Vector2.zero;
-        yield return new WaitForSeconds(chargeCooldown);
+            rb.linearVelocity = Vector2.zero;
+            yield return new WaitForSeconds(chargeCooldown);
+        }
 
         isCharging = false;
         canCharge = true;
@@ -120,11 +152,9 @@ public class Operario : EnemyBase
             DamageHandler damageHandler = collision.gameObject.GetComponent<DamageHandler>();
             if (damageHandler != null)
             {
-                // Obtém a normal do primeiro ponto de contato
                 Vector2 normalDaColisao = collision.GetContact(0).normal;
-                // A direção do knockback deve ser oposta a essa normal (apontando para fora do inimigo)
                 Vector2 knockbackDirection = -normalDaColisao.normalized;
-                damageHandler.TakeDamage(1, knockbackDirection, knockbackForces);
+                damageHandler.TakeDamage(damage, knockbackDirection, knockbackForces); // Use a variável de dano do Operario
             }
         }
     }

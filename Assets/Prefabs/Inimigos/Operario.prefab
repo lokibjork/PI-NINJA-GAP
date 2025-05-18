@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f12579729cfdf340a4000dc66a1e97d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 8
+  maxHealth: 4
   currentHealth: 0
   knockbackForce: 5
   flashTime: 0.1

@@ -17,7 +17,7 @@ public class AnimatedButton : MonoBehaviour, ISelectHandler, IDeselectHandler
         if (hoverSound != null) hoverSound.Play();
         
         activeTween = LeanTween.scale(gameObject, originalScale * 1.1f, 0.5f)
-            .setEase(LeanTweenType.easeInOutSine)
+            .setEase(LeanTweenType.easeInOutElastic)
             .setLoopPingPong();
     }
 
