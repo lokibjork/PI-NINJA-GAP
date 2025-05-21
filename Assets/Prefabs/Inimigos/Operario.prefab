@@ -200,17 +200,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f12579729cfdf340a4000dc66a1e97d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
+  maxHealth: 2
   currentHealth: 0
   knockbackForce: 5
   flashTime: 0.1
   shakeIntensity: 0.1
   shakeDuration: 0.1
   _hitClip:
-  - {fileID: 8300000, guid: 141f1bb85e6d38a459a23372862861ee, type: 3}
-  - {fileID: 8300000, guid: 1fe013d4521ea894cad0809fa34b7eef, type: 3}
-  - {fileID: 8300000, guid: b9da60808e9466b458daf59adec37963, type: 3}
-  - {fileID: 8300000, guid: 36162d86da03f47498eec0490e54c264, type: 3}
+  - {fileID: 8300000, guid: fd1f98b135c6caa4e99fa951473cc738, type: 3}
   _killClip: {fileID: 8300000, guid: ee1329f167a95f74383291dfb4f32a97, type: 3}
   flashMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   patrolSpeed: 0

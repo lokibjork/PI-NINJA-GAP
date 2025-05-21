@@ -12,6 +12,8 @@ TagManager:
   - Boss
   - BalaBoss
   - Detect
+  - GameOverCanvas
+  - GameOverCanvasName
   layers:
   - Default
   - TransparentFX

@@ -561,36 +561,10 @@ MonoBehaviour:
   invulnerabilityTime: 2
   rb: {fileID: 4252455248824809951}
   spriteRenderer: {fileID: 9215258429239323503}
-  _playerHit: {fileID: 8300000, guid: a0a1cece1ea4dbe45b8397796a0b2525, type: 3}
+  _playerHit: {fileID: 8300000, guid: d25da1fb445064945858c652876876fb, type: 3}
   screenShaker: {fileID: 737315311789399868}
   shakeIntensity: 0.1
   shakeDuration: 0.1
-  scriptsToDisableOnDeath: []
-  spritesToMakeInvisibleOnDeath: []
-  tomatoChunkPrefab: {fileID: 0}
-  bloodParticlePrefab: {fileID: 0}
-  numberOfTomatoChunks: 15
-  explosionForce: 5
-  deathEffectDuration: 2
-  gameOverCanvas: {fileID: 0}
-  gameOverPanelCanvasGroup: {fileID: 0}
-  gameOverMessageText: {fileID: 0}
-  fadeInDuration: 1
-  sarcasticGameOverMessages:
-  - "Bem, isso n\xE3o correu como planejado, n\xE3o \xE9?"
-  - "Parab\xE9ns! Voc\xEA alcan\xE7ou o objetivo... de morrer."
-  - Que performance! Aplausos... virtuais.
-  - "N\xE3o se preocupe, acontece com os melhores... e com voc\xEA."
-  - Talvez a jardinagem seja uma carreira melhor.
-  - "Spoiler: voc\xEA n\xE3o sobreviveu."
-  - "Aposto que sua m\xE3e est\xE1 orgulhosa."
-  - "Game Over. Tente n\xE3o morrer da pr\xF3xima vez (sem promessas)."
-  - "Voc\xEA fez o seu melhor. O seu melhor n\xE3o foi o suficiente."
-  - Pelo menos os tomates tiveram um final explosivo.
-  restartTextObject: {fileID: 0}
-  restartTextCanvasGroup: {fileID: 0}
-  restartTextDelay: 1.5
-  restartTextFadeInDuration: 1
 --- !u!114 &5360591799605747559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,8 +596,8 @@ MonoBehaviour:
   dust: {fileID: 5696725635259284761}
   _fall: {fileID: 3014830122341488661}
   _jumpClip: {fileID: 8300000, guid: 9df0051e9f80ef44ea383cadf369f990, type: 3}
-  _fallClip: {fileID: 8300000, guid: aea39081e5a64564b99484dad1a42fd0, type: 3}
-  _runClip: {fileID: 8300000, guid: b4bb9f1a2793bf24c8dce1857fadcea6, type: 3}
+  _fallClip: {fileID: 8300000, guid: ff752c1e2cc055e489d71004020f99d8, type: 3}
+  _runClip: {fileID: 8300000, guid: 3c2f0e2d9436be3498c9368c128ea913, type: 3}
 --- !u!114 &3626991329815981103
 MonoBehaviour:
   m_ObjectHideFlags: 0
