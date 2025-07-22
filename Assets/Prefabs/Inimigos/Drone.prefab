@@ -278,9 +278,7 @@ MonoBehaviour:
   _hitClip:
   - {fileID: 8300000, guid: 141f1bb85e6d38a459a23372862861ee, type: 3}
   - {fileID: 8300000, guid: 1fe013d4521ea894cad0809fa34b7eef, type: 3}
-  - {fileID: 8300000, guid: b9da60808e9466b458daf59adec37963, type: 3}
-  - {fileID: 8300000, guid: 36162d86da03f47498eec0490e54c264, type: 3}
-  _killClip: {fileID: 8300000, guid: ee1329f167a95f74383291dfb4f32a97, type: 3}
+  _killClip: {fileID: 8300000, guid: d8aff5f31d200a249bc8058eb48c1e85, type: 3}
   flashMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   moveSpeed: 1.5
   hoverHeight: 2.5

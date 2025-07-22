@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 
     private MusicManager musicaManager;
 
-    private string MusicaLevel11 = "Level 1 Cave";
+    private string MusicaLevel11 = "Bullet Theme and level";
 
 
     private void Awake()

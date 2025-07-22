@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/Menu.unity
     guid: 31c386cf2c4aef0409f12b93a406b702
   - enabled: 1
-    path: Assets/Scenes/Capitulos/CAPITULO 1/Mina - 1.unity
-    guid: 7ff8bdc7869fb9d478ff6e94426f0562
+    path: Assets/Scenes/Fases/Fase 1.unity
+    guid: e72269fd205cef24495d2795ada98db1
+  - enabled: 1
+    path: Assets/Scenes/Fases/Fase 2.unity
+    guid: 32d2f2aeef9763d42a384170da115351
+  - enabled: 1
+    path: Assets/Scenes/Fases/Fase 3.unity
+    guid: def227a6ef26b814db2fa136aecac5db
   - enabled: 1
     path: Assets/Scenes/Bosses/Boss.unity
     guid: b2da0d37e337a764f85da3454fa86855

@@ -125,7 +125,7 @@ public class MenuTween : MonoBehaviour
     public void NewGame()
 
     {
-        SceneManager.LoadScene("Mina - 1");
+        SceneManager.LoadScene("Fase 1");
     }
 
 }

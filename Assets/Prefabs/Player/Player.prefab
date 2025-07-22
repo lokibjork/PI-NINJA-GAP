@@ -562,9 +562,17 @@ MonoBehaviour:
   rb: {fileID: 4252455248824809951}
   spriteRenderer: {fileID: 9215258429239323503}
   _playerHit: {fileID: 8300000, guid: d25da1fb445064945858c652876876fb, type: 3}
+  _deathSound: {fileID: 8300000, guid: 55d74d48a97fcbb44a1b47adbe81bc97, type: 3}
   screenShaker: {fileID: 737315311789399868}
   shakeIntensity: 0.1
   shakeDuration: 0.1
+  objectsToDeleteOnDeath: []
+  scriptsToDisableOnDeath: []
+  tomatoChunkPrefab: {fileID: 0}
+  bloodParticlePrefab: {fileID: 0}
+  numberOfTomatoChunks: 15
+  explosionForce: 5
+  deathEffectDuration: 2
 --- !u!114 &5360591799605747559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,7 +605,11 @@ MonoBehaviour:
   _fall: {fileID: 3014830122341488661}
   _jumpClip: {fileID: 8300000, guid: 9df0051e9f80ef44ea383cadf369f990, type: 3}
   _fallClip: {fileID: 8300000, guid: ff752c1e2cc055e489d71004020f99d8, type: 3}
-  _runClip: {fileID: 8300000, guid: 3c2f0e2d9436be3498c9368c128ea913, type: 3}
+  _walkClips:
+  - {fileID: 8300000, guid: 3c2f0e2d9436be3498c9368c128ea913, type: 3}
+  - {fileID: 8300000, guid: 2821cd9cc15aaef40b8c7a12375fb3b6, type: 3}
+  walkVolume: 1
+  distancePerStepSound: 0.1
 --- !u!114 &3626991329815981103
 MonoBehaviour:
   m_ObjectHideFlags: 0

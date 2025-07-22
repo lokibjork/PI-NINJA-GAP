@@ -18,14 +18,25 @@ public class EnemyBase : MonoBehaviour
     protected Rigidbody2D rb;
     private ScreenShaker screenShaker;
 
+    // NOVOS CAMPOS PARA OS EFEITOS DE MORTE DO INIMIGO
+    [Header("Efeitos de Morte do Inimigo")]
+    [Tooltip("Prefab do pedaço de tomate (com Rigidbody2D).")]
+    public GameObject tomatoChunkPrefab;
+    [Tooltip("Prefab das partículas de sangue.")]
+    public GameObject bloodParticlePrefab;
+    public int numberOfTomatoChunks = 5; // Menos pedaços para inimigos menores
+    public float explosionForce = 3f; // Força menor para inimigos
+    [Tooltip("Tempo em segundos que os efeitos de morte (partículas/pedaços) duram antes de serem destruídos.")]
+    public float deathEffectDuration = 1.5f; // Duração dos efeitos
+
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        screenShaker = GetComponent<ScreenShaker>();
+        screenShaker = FindObjectOfType<ScreenShaker>(); // Procure pelo ScreenShaker na cena
 
         if (screenShaker == null)
         {
-            Debug.LogError("ScreenShaker não encontrado na cena!");
+            Debug.LogWarning("ScreenShaker não encontrado na cena! Certifique-se de ter um em alguma parte da hierarquia.");
         }
     }
 
@@ -49,9 +60,12 @@ public class EnemyBase : MonoBehaviour
         currentHealth -= damage;
 
         // Aplica knockback
-        rb.linearVelocity = Vector2.zero;
-        rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
-        SoundManagerSO.PlaySoundFXClips(_hitClip, transform.position, 1);
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero; // Zera a velocidade antes de aplicar nova força
+            rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+        }
+        SoundManagerSO.PlaySoundFXClips(_hitClip, transform.position, 1); // Descomente se SoundManagerSO for acessível
 
         // Feedback de dano (flash e shake)
         StartCoroutine(DamageFeedback());
@@ -82,6 +96,7 @@ public class EnemyBase : MonoBehaviour
         // Screen Shake
         if (screenShaker != null)
         {
+            // Ajuste a direção do shake se necessário, ou use Vector3.zero para um shake global
             screenShaker.Shake(transform.position.normalized * shakeIntensity);
         }
     }
@@ -90,16 +105,46 @@ public class EnemyBase : MonoBehaviour
     {
         if (spriteRenderer != null)
         {
-            spriteRenderer.color = Color.red;
+            Color originalColor = spriteRenderer.color; // Captura a cor original do sprite
+            spriteRenderer.color = Color.red; // Ou a cor de flash desejada
             yield return new WaitForSeconds(flashTime);
-            spriteRenderer.color = Color.white; ; // Ou a cor original do inimigo
+            spriteRenderer.color = originalColor; // Retorna à cor original
         }
         yield return null;
     }
 
     protected virtual void Die()
     {
-        SoundManagerSO.PlaySoundFXClip(_killClip, transform.position, 1);
+        SoundManagerSO.PlaySoundFXClip(_killClip, transform.position, 1); // Descomente se SoundManagerSO for acessível
+
+        // --- INÍCIO DOS EFEITOS DE MORTE DO INIMIGO ---
+        // Instancia os pedaços de tomate (ou outro tipo de "pedaço")
+        for (int i = 0; i < numberOfTomatoChunks; i++)
+        {
+            if (tomatoChunkPrefab != null)
+            {
+                GameObject chunk = Instantiate(tomatoChunkPrefab, transform.position, Random.rotation);
+                Rigidbody2D rbChunk = chunk.GetComponent<Rigidbody2D>();
+                if (rbChunk != null)
+                {
+                    Vector2 randomDirection = Random.insideUnitCircle.normalized;
+                    rbChunk.AddForce(randomDirection * explosionForce, ForceMode2D.Impulse);
+                }
+                // Destroi os pedaços de tomate após um tempo para não lotar a cena
+                Destroy(chunk, deathEffectDuration);
+            }
+        }
+
+        // Instancia as partículas de sangue
+        if (bloodParticlePrefab != null)
+        {
+            GameObject particles = Instantiate(bloodParticlePrefab, transform.position, Quaternion.identity);
+            // Destroi as partículas de sangue após um tempo
+            Destroy(particles, deathEffectDuration);
+        }
+        // --- FIM DOS EFEITOS DE MORTE DO INIMIGO ---
+
+        // Destroi o próprio inimigo
         Destroy(gameObject);
     }
 

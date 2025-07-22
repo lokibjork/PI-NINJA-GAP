@@ -46,7 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicMixerGroup: {fileID: 24300002, guid: 6b63a40d8bcfffb47a937b4094adc0ab, type: 2}
   musicTracks:
-  - {fileID: 8300000, guid: ff72209730998ce49bbd85f366449ef2, type: 3}
-  - {fileID: 8300000, guid: 6d9206ecfdd476a4d888ab5127bae821, type: 3}
+  - {fileID: 8300000, guid: 042fc82d6cdca664487f62aefd9d9e76, type: 3}
   defaultVolume: 1
   fadeDuration: 234.1

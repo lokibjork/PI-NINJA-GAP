@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BreakablePlatform : MonoBehaviour
 {
+    public AudioClip blockSound;
+    public GameObject explosionEffect;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bala"))
@@ -9,16 +11,18 @@ public class BreakablePlatform : MonoBehaviour
             // Plataforma atingida por uma bala
             Break();
 
-            // Destrói a bala
             Destroy(collision.gameObject);
+        }else if (collision.gameObject.CompareTag("Player"))
+        {
+            Break();
         }
     }
 
     private void Break()
     {
-        // Adicione aqui qualquer efeito visual ou sonoro de quebra, se desejar.
 
-        // Destrói o GameObject da plataforma
+        SoundManagerSO.PlaySoundFXClip(blockSound, transform.position, 1f);
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

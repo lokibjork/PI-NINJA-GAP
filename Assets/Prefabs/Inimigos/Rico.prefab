@@ -114,12 +114,14 @@ MonoBehaviour:
   shakeIntensity: 0.1
   shakeDuration: 0.1
   _hitClip:
-  - {fileID: 8300000, guid: 141f1bb85e6d38a459a23372862861ee, type: 3}
-  - {fileID: 8300000, guid: 1fe013d4521ea894cad0809fa34b7eef, type: 3}
-  - {fileID: 8300000, guid: b9da60808e9466b458daf59adec37963, type: 3}
-  - {fileID: 8300000, guid: 36162d86da03f47498eec0490e54c264, type: 3}
-  _killClip: {fileID: 8300000, guid: ee1329f167a95f74383291dfb4f32a97, type: 3}
+  - {fileID: 8300000, guid: fd1f98b135c6caa4e99fa951473cc738, type: 3}
+  _killClip: {fileID: 8300000, guid: d8aff5f31d200a249bc8058eb48c1e85, type: 3}
   flashMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  tomatoChunkPrefab: {fileID: 7253902149554035128, guid: c175c39a6c55c8549b6df6578e99f6fd, type: 3}
+  bloodParticlePrefab: {fileID: 997897312517694866, guid: 68f0780b95c0f5f4aafe2f237955593c, type: 3}
+  numberOfTomatoChunks: 15
+  explosionForce: 10
+  deathEffectDuration: 3
   attackCooldown: 2.1
   detectionRange: 6
   projectilePrefab: {fileID: 6972602283425788897, guid: 34690c3fd09938b4aaeb4460bb4daafd, type: 3}
@@ -365,7 +367,7 @@ MonoBehaviour:
     m_TrimEdge: 0.02
     m_FlipX: 0
     m_FlipY: 0
-    m_InitialTrim: 0.06
+    m_InitialTrim: 0
   m_CastingOption: 1
   m_PreviousTrimEdge: 0.02
   m_PreviousEdgeProcessing: 1
@@ -537,7 +539,7 @@ MonoBehaviour:
     m_TrimEdge: 0.03
     m_FlipX: 0
     m_FlipY: 0
-    m_InitialTrim: 0.03
+    m_InitialTrim: 0
   m_CastingOption: 1
   m_PreviousTrimEdge: 0.03
   m_PreviousEdgeProcessing: 1

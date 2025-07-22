@@ -208,8 +208,13 @@ MonoBehaviour:
   shakeDuration: 0.1
   _hitClip:
   - {fileID: 8300000, guid: fd1f98b135c6caa4e99fa951473cc738, type: 3}
-  _killClip: {fileID: 8300000, guid: ee1329f167a95f74383291dfb4f32a97, type: 3}
+  _killClip: {fileID: 8300000, guid: d8aff5f31d200a249bc8058eb48c1e85, type: 3}
   flashMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  tomatoChunkPrefab: {fileID: 7253902149554035128, guid: c175c39a6c55c8549b6df6578e99f6fd, type: 3}
+  bloodParticlePrefab: {fileID: 8252882719013371242, guid: 49751010a0c94464582982ddcd4925db, type: 3}
+  numberOfTomatoChunks: 15
+  explosionForce: 10
+  deathEffectDuration: 3
   patrolSpeed: 0
   patrolPoints: []
   chargeSpeed: 8

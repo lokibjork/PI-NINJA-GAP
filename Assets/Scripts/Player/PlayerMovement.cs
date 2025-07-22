@@ -35,11 +35,23 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem dust;
     public ParticleSystem _fall;
 
-
     [Header("Audio")]
     [SerializeField] public AudioClip _jumpClip;
     [SerializeField] public AudioClip _fallClip;
-    [SerializeField] public AudioClip _runClip;
+    // [SerializeField] public AudioClip _runClip; // Este campo pode ser um array se você tiver múltiplos sons de passo
+
+    // NOVOS CAMPOS PARA O SOM DE ANDAR
+    [Header("Som de Andar")]
+    [SerializeField]
+    [Tooltip("Clipe(s) de áudio para o som de andar/correr.")]
+    public AudioClip[] _walkClips; // Pode ser um array para variar os sons
+    [Tooltip("Volume do som de andar.")]
+    public float walkVolume = 0.5f;
+    [Tooltip("Distância que o jogador precisa percorrer no chão para tocar o próximo som de andar.")]
+    public float distancePerStepSound = 1f; // Ajuste para a frequência do som
+    private Vector2 lastGroundPosition;
+    private float distanceTraveledSinceLastSound;
+    private bool isPlayingWalkSound = false; // Flag para controlar o som contínuo (se for o caso)
 
     [Header("Animator")]
     private Animator anim;
@@ -48,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        lastGroundPosition = transform.position; // Inicializa a posição para o cálculo de distância
     }
 
     private void Update()
@@ -63,9 +76,38 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y - gravity * Time.deltaTime, -maxFallSpeed));
 
         if (isGrounded)
+        {
             coyoteTimeCounter = coyoteTime;
+            // Se estiver no chão e se movendo horizontalmente, calcule a distância
+            if (Mathf.Abs(moveInput) > 0.1f)
+            {
+                distanceTraveledSinceLastSound += Vector2.Distance(transform.position, lastGroundPosition);
+                lastGroundPosition = transform.position;
+
+                if (distanceTraveledSinceLastSound >= distancePerStepSound)
+                {
+                    // Toca um som de andar
+                    if (_walkClips != null && _walkClips.Length > 0)
+                    {
+                        SoundManagerSO.PlaySoundFXClips(_walkClips, transform.position, walkVolume);
+                    }
+                    distanceTraveledSinceLastSound = 0f; // Reseta a distância
+                }
+            }
+            else
+            {
+                // Se não estiver se movendo, reseta a distância e a posição
+                distanceTraveledSinceLastSound = 0f;
+                lastGroundPosition = transform.position;
+            }
+        }
         else
+        {
             coyoteTimeCounter -= Time.deltaTime;
+            // Reseta a distância quando não estiver no chão
+            distanceTraveledSinceLastSound = 0f;
+            lastGroundPosition = transform.position;
+        }
 
         if (Input.GetButtonDown("Jump"))
             bufferedJumpCounter = bufferedJumpTime;
@@ -101,18 +143,12 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
         }
 
-        /*if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-        {
-            StartCoroutine(Dash());
-        }
-        */
-
         if (moveInput > 0)
             transform.localScale = new Vector3(1, 1, 1);
         else if (moveInput < 0)
             transform.localScale = new Vector3(-1, 1, 1);
 
-        if (moveInput != 0)
+        if (moveInput != 0 && isGrounded) // Só cria poeira se estiver no chão e se movendo
         {
             dust.Play();
             isFacingRight = moveInput > 0;
@@ -130,6 +166,7 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
             _fall.Play();
             anim.SetBool("IsJumping", !isGrounded);
+            lastGroundPosition = transform.position; // Reseta a posição no chão ao tocar o solo
         }
     }
 
@@ -138,6 +175,8 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Ground"))
         {
             isGrounded = false;
+            // Quando sai do chão, para de contar a distância e reseta a posição
+            distanceTraveledSinceLastSound = 0f;
         }
     }
 }
